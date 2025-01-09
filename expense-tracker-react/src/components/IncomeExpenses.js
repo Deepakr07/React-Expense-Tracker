@@ -2,12 +2,13 @@ import { GlobalContext } from "../Context/GlobalState"
 import { useContext } from "react"
 
 export default function IncomeExpenses(){
+  
   const { transactions } = useContext(GlobalContext)
   let income = 0
   let expense = 0
   transactions.forEach(transaction => {
       if(transaction.amount >0)
-        income+=transaction.amount
+        income+=Math.abs(transaction.amount)
       else
         expense+=Math.abs(transaction.amount)
   });
