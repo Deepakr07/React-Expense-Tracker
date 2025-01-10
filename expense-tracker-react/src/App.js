@@ -1,15 +1,10 @@
-import Header from "./Components/Header";
-import Balance from "./Components/Balance";
-import IncomeExpenses from "./Components/IncomeExpenses";
-import TransactionList from "./Components/TransactionList";
-import AddTransaction from "./Components/AddTransaction";
 import { GlobalProvider } from "./Context/GlobalState";
-import AddTransactionPage from "./Components/AddTransactionPage";
-import IncomeExpensePage from "./Components/IncomeExpensePage";
+import AddTransactionPage from "./Pages/AddTransactionPage/AddTransactionPage";
+import IncomeExpensePage from "./Pages/IncomeExpensePage/IncomeExpensePage";
 import {BrowserRouter} from 'react-router-dom'
 import { Route,Routes } from 'react-router-dom';
 import "./App.css"
-import SimpleBottomNavigation from "./Components/SimpleBottomNavigation";
+import SimpleBottomNavigation from "./Components/BottomNavBar";
 
 function App() {
   return (
