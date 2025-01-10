@@ -1,8 +1,7 @@
-import { GlobalContext } from "../../../Context/GlobalState"
-import { useContext } from "react"
-import { useForm } from "react-hook-form"
-import { handleAmountBeforeInput, handleAmountInputChange, handleTextInputChange } from "../validations"
-
+import { GlobalContext } from "../../../Context/GlobalState";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { handleAmountBeforeInput, handleAmountInputChange, handleTextInputChange } from "../../../Helpers/validations";
 
 export default function AddTransaction() {
   const {
@@ -16,8 +15,6 @@ export default function AddTransaction() {
   const textValue = watch("text");
   const amountValue = watch("amount");
   const { addTransaction } = useContext(GlobalContext);
-
-
 
   const onSubmit = ({ text, amount }) => {
     const newTransaction = {
@@ -41,7 +38,7 @@ export default function AddTransaction() {
             name="text"
             {...register("text")}
             placeholder="Enter text..."
-            onInput={(e)=> handleTextInputChange(e,setValue)} 
+            onInput={(e) => handleTextInputChange(e, setValue)}
           />
         </div>
         <div className="form-control">
@@ -50,15 +47,16 @@ export default function AddTransaction() {
             (negative - expense, positive - income)
           </label>
           <input
-            type="text" 
+            type="text"
             name="amount"
             {...register("amount")}
             placeholder="Enter amount..."
-            onInput={(e)=> handleAmountInputChange(e,setValue)} 
-            onBeforeInput={(e)=>handleAmountBeforeInput(e)} 
+            onInput={(e) => handleAmountInputChange(e, setValue)}
+            onBeforeInput={(e) => handleAmountBeforeInput(e)}
           />
         </div>
-        {textValue && amountValue && <button className="btn">Add transaction</button>}
+
+        <button className={(!textValue || !amountValue)?"btn-disabled":"btn"} disabled={!textValue || !amountValue}>Add transaction</button>
       </form>
     </>
   );
