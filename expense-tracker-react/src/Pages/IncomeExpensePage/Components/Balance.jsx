@@ -26,14 +26,17 @@ export default function Balance() {
     <div className="balance-container">
       <Typography variant="h5" 
         sx={{
-          fontSize:"1.7rem"
+          fontSize:"1.9rem",
+          fontWeight:"",
+          marginBottom:"8px"
           }}>Your Balance
       </Typography>
       <Tooltip amount={calculated}>
         <Typography variant= "h4"
         sx={{ 
           cursor: "pointer", 
-          fontWeight:"500"
+          fontWeight:"500",
+          fontSize:"1.9rem"
           }}>${truncateAmount(calculated)}
         </Typography>
   </Tooltip>

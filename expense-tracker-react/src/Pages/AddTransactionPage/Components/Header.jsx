@@ -1,7 +1,12 @@
+import Typography from '@mui/material/Typography';
 export default function Header(){
     return (
-        <h2>
+        <Typography variant='h5' 
+        sx={{ 
+            fontWeight: 'bold',
+            fontSize:'1.8rem'
+            }}>
             Expense Tracker
-        </h2>
+        </Typography>
     )
 }
