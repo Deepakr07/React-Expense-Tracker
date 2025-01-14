@@ -1,7 +1,7 @@
 import { useContext} from "react";
 import { GlobalContext } from "../../../Context/GlobalState";
 import Tooltip from "./Tooltip";  // Import the Tooltip component
-
+import { Typography } from "@mui/material";
 export default function Balance() {
   const { transactions } = useContext(GlobalContext);
 
@@ -24,13 +24,19 @@ export default function Balance() {
 
   return (
     <div className="balance-container">
-      <h4>Your Balance</h4>
-      {/* Tooltip for Balance */}
+      <Typography variant="h5" 
+        sx={{
+          fontSize:"1.7rem"
+          }}>Your Balance
+      </Typography>
       <Tooltip amount={calculated}>
-        <h1 style={{ cursor: "pointer" }}>
-          ${truncateAmount(calculated)}
-        </h1>
-      </Tooltip>
+        <Typography variant= "h4"
+        sx={{ 
+          cursor: "pointer", 
+          fontWeight:"500"
+          }}>${truncateAmount(calculated)}
+        </Typography>
+  </Tooltip>
     </div>
   );
 }
