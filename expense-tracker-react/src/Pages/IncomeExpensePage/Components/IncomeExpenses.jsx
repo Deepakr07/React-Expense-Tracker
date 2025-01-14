@@ -1,5 +1,6 @@
 import { GlobalContext } from "../../../Context/GlobalState";
 import { useContext } from "react";
+import { Typography } from "@mui/material";
 import Tooltip from "./Tooltip"; 
 
 export default function IncomeExpenses() {
@@ -24,21 +25,19 @@ export default function IncomeExpenses() {
     <div className="inc-exp-container">
 
       <div>
-        <h4>Income</h4>
+        <Typography variant="h6" sx={{fontWeight:"bold",fontSize:"1.15rem"}}>INCOME</Typography>
         <Tooltip amount={income}>
-          <p className="money plus" style={{ cursor: "pointer" }}>
-            +${truncateAmount(income)}
-          </p>
+        <Typography variant = "h6" sx={{cursor:"pointer"}} className="money plus">+${truncateAmount(income)}</Typography>
         </Tooltip>
       </div>
-
+      {/* <p className="money plus" style={{ cursor: "pointer" }}>
+            +${truncateAmount(income)}
+          </p> */}
 
       <div>
-        <h4>Expense</h4>
+      <Typography variant="h6" sx={{fontWeight:"bold",fontSize:"1.15rem"}}>EXPENSE</Typography>
         <Tooltip amount={expense}>
-          <p className="money minus" style={{ cursor: "pointer" }}>
-            -${truncateAmount(expense)}
-          </p>
+        <Typography variant = "h6" sx={{cursor:"pointer"}} className="money minus">-${truncateAmount(expense)}</Typography>
         </Tooltip>
       </div>
     </div>
