@@ -28,7 +28,7 @@ export default function Balance() {
         sx={{
           fontSize:"1.9rem",
           fontWeight:"",
-          marginBottom:"8px"
+          marginBottom:"4px"
           }}>Your Balance
       </Typography>
       <Tooltip amount={calculated}>
