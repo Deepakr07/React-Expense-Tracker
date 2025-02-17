@@ -16,8 +16,8 @@ export default function TransactionList(){
         }}>History
         </Typography>
         <List className="list">
-            {transactions.length === 0 ?"No recent transactions":transactions.map(transaction =>(
-                    <Transaction transaction={transaction} key={transaction.id}/>
+            {transactions.length === 0 ?"No recent transactions": transactions.map(transaction =>(
+                    <Transaction transaction = {transaction} key={transaction.id}/>
                 ))}
         </List>
         </>

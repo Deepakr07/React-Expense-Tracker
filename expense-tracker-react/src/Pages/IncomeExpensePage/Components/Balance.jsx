@@ -1,14 +1,15 @@
 import { useContext} from "react";
 import { GlobalContext } from "../../../Context/GlobalState";
-import Tooltip from "./Tooltip";  // Import the Tooltip component
+import Tooltip from "./Tooltip"; 
 import { Typography } from "@mui/material";
+import "./Balance.css"
 export default function Balance() {
   const { transactions } = useContext(GlobalContext);
 
   let income = 0;
   let expense = 0;
 
-  // Calculate income and expenses
+
   transactions.forEach((transaction) => {
     if (transaction.amount > 0) income += Math.abs(transaction.amount);
     else expense += Math.abs(transaction.amount);
@@ -16,7 +17,7 @@ export default function Balance() {
 
   const calculated = income - expense;
 
-  // Function to truncate amounts
+
   const truncateAmount = (amount) => {
     const amountStr = amount.toString();
     return amountStr.length > 6 ? `${amountStr.slice(0, 6)}...` : amountStr;
@@ -24,19 +25,22 @@ export default function Balance() {
 
   return (
     <div className="balance-container">
-      <Typography variant="h5" 
+      <Typography variant="h7" 
         sx={{
-          fontSize:"1.9rem",
+          fontSize:"0.9rem",
+          fontWeight:"900",
+          color:"#dfccfc",
           marginBottom:"4px"
-          }}>Your Balance
+          }}>Current Balance
       </Typography>
       <Tooltip amount={calculated}>
         <Typography variant= "h5"
         sx={{ 
           cursor: "pointer", 
-          fontWeight:"500",
-           fontSize:"1.7rem"
-          }}>${truncateAmount(calculated)}
+          fontWeight:"600",
+           fontSize:"2.5rem",
+           color:"#FFFFFF"
+          }}>$420.00
         </Typography>
   </Tooltip>
     </div>
