@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { GlobalContext } from "../../../Context/GlobalState"
 import Transaction from "./Transaction"
 import { Typography, List } from "@mui/material"
+import "./Transaction.css"
 export default function TransactionList(){
     const { transactions } = useContext(GlobalContext)
     console.log(transactions)
@@ -16,8 +17,8 @@ export default function TransactionList(){
         }}>History
         </Typography>
         <List className="list">
-            {transactions.length === 0 ?"No recent transactions":transactions.map(transaction =>(
-                    <Transaction transaction={transaction} key={transaction.id}/>
+            {transactions.length === 0 ?"No recent transactions": transactions.map(transaction =>(
+                    <Transaction transaction = {transaction} key={transaction.id}/>
                 ))}
         </List>
         </>
