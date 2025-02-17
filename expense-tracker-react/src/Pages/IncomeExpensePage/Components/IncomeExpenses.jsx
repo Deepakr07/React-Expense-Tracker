@@ -18,7 +18,7 @@ export default function IncomeExpenses({category,categoryClass, InsideIcon,symbo
 
   const truncateAmount = (amount) => {
     const amountStr = amount.toString();
-    return amountStr.length > 6 ? `${amountStr.slice(0, 6)}...` : amountStr;
+    return amountStr.length > 6 ? `${amountStr.slice(0, 6)}...` : parseFloat(amountStr).toFixed(2);
   };
 
   return (

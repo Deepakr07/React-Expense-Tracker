@@ -15,7 +15,7 @@ export default function Balance() {
     else expense += Math.abs(transaction.amount);
   });
 
-  const calculated = income - expense;
+  const calculated = parseFloat(income - expense).toFixed(2)
 
 
   const truncateAmount = (amount) => {
@@ -40,7 +40,7 @@ export default function Balance() {
           fontWeight:"600",
            fontSize:"2.5rem",
            color:"#FFFFFF"
-          }}>$420.00
+          }}>${truncateAmount(calculated)}
         </Typography>
   </Tooltip>
     </div>
