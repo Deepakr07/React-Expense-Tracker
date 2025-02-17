@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { GlobalContext } from "../../../Context/GlobalState"
 import Transaction from "./Transaction"
 import { Typography, List } from "@mui/material"
+import "./Transaction.css"
 export default function TransactionList(){
     const { transactions } = useContext(GlobalContext)
     console.log(transactions)
