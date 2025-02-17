@@ -2,7 +2,7 @@ import { GlobalContext } from "../../../Context/GlobalState";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { handleAmountBeforeInput, handleAmountInputChange, handleTextInputChange } from "../../../Helpers/validations";
-
+import { Typography } from "@mui/material";
 export default function AddTransaction() {
   const {
     register,
@@ -15,6 +15,7 @@ export default function AddTransaction() {
   const textValue = watch("text");
   const amountValue = watch("amount");
   const { addTransaction } = useContext(GlobalContext);
+
 
   const onSubmit = ({ text, amount }) => {
     const newTransaction = {
@@ -29,7 +30,14 @@ export default function AddTransaction() {
 
   return (
     <>
-      <h3>Add new transaction</h3>
+      {/* <h3>Add new transaction</h3> */}
+      <Typography variant="h6"
+       sx={{fontSize:"1.3rem",fontWeight:"600",marginTop:"1.2rem",
+        borderBottom:"1px solid #bbb",
+       }}
+      >
+        Add new transaction
+      </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control">
           <label htmlFor="text">Text</label>

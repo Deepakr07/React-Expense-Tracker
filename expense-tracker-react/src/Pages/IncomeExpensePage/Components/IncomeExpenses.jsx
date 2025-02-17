@@ -30,10 +30,6 @@ export default function IncomeExpenses() {
         <Typography variant = "h6" sx={{cursor:"pointer"}} className="money plus">+${truncateAmount(income)}</Typography>
         </Tooltip>
       </div>
-      {/* <p className="money plus" style={{ cursor: "pointer" }}>
-            +${truncateAmount(income)}
-          </p> */}
-
       <div>
       <Typography variant="h6" sx={{fontWeight:"bold",fontSize:"1.15rem"}}>EXPENSE</Typography>
         <Tooltip amount={expense}>

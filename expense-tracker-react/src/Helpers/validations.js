@@ -14,10 +14,10 @@ export const handleAmountInputChange = (e,setValue) => {
     if (value.startsWith(" ")) {
         value = value.trimStart(); 
     }
-    if (value.length > 17) {
-        value = value.substring(0, 17);
+    if (value.length > 30) {
+        value = value.substring(0, 30);
     }
-    value = value.replace(/\d/g, '');
+    // value = value.replace(/\d/g, '');
     setValue("text", value); 
 };
 
