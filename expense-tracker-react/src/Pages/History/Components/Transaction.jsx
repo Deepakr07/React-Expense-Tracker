@@ -12,9 +12,9 @@ export default function Transaction({ transaction, DeleteIcon }) {
   const circleClass = transaction.amount > 0 ? "green-background" : "red-background";
   const Icon = transaction.amount > 0 ? ArrowCircleUp : ArrowCircleDown;
 
-  const [open, setOpen] = useState(false); // Add state for modal open/close
-  const handleOpen = () => setOpen(true); // Function to open the modal
-  const handleClose = () => setOpen(false); // Function to close the modal
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true); 
+  const handleClose = () => setOpen(false); 
 
   function truncateTransactionEntity(text) {
     return text.length > 17 ? `${text.slice(0, 17)}...` : text;
