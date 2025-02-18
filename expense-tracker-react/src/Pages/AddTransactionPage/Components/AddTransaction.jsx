@@ -4,6 +4,9 @@ import { useForm } from "react-hook-form";
 import { handleAmountBeforeInput, handleAmountInputChange, handleTextInputChange } from "../../../Helpers/validations";
 import { Typography } from "@mui/material";
 import "./AddTransaction.css"
+import { getCurrentDateAndTime } from "../../../Helpers/validations";
+
+
 
 export default function AddTransaction() {
   const {
@@ -20,20 +23,16 @@ export default function AddTransaction() {
 
 
   const onSubmit = ({ text, amount }) => {
-    const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const year = today.getFullYear();
-    const hours = String(today.getHours()).padStart(2, '0');
-    const minutes = String(today.getMinutes()).padStart(2, '0');
-    const formattedDate = `${day}-${month}-${year} ${hours}:${minutes}`;
+    
+    const formattedDate = getCurrentDateAndTime()
+
     const newTransaction = {
       id: Math.floor(Math.random() * 100000000000),
       text,
       amount,
       date:formattedDate
     };
-    console.log(text, amount);
+
     addTransaction(newTransaction);
     reset();
   };
@@ -41,9 +40,10 @@ export default function AddTransaction() {
   return (
     <div className="add-transaction-container">
       <Typography variant="h6"
-       sx={{fontSize:"1.2rem",marginTop:"1.2rem",
-       }}
-      >
+       sx={{
+        fontSize:"1.2rem",
+        marginTop:"1.2rem",
+       }}>
         Add transaction
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
