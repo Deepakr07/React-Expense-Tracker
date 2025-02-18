@@ -1,4 +1,4 @@
-import Header from "./Components/Header";
+
 import IncomeExpenses from "./Components/IncomeExpenses";
 import TransactionList from "./Components/TransactionList";
 import "../../../src/App.css"
@@ -20,7 +20,7 @@ export default function IncomeExpensePage(){
                 InsideIcon={ArrowCircleDown}
                 symbol = "-"/>
             </div>
-            <TransactionList />
+            <TransactionList text = "Recent Transactions"/>
         </div>
     )
 }
