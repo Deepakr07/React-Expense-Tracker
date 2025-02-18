@@ -7,20 +7,22 @@ export default function TransactionList(){
     const { transactions } = useContext(GlobalContext)
     console.log(transactions)
     return(
-        <>
+        <div className="transaction-list-container">
         <Typography 
         sx={{
-            fontWeight:"600",
+            fontWeight:"550",
             marginTop:"5px",
-            borderBottom:"1px solid #bbb",
-            fontSize:"1.4rem"
-        }}>History
+            fontSize:"1rem"
+        }} className="transaction-header">Recent Transactions
         </Typography>
-        <List className="list">
-            {transactions.length === 0 ?"No recent transactions": transactions.map(transaction =>(
-                    <Transaction transaction = {transaction} key={transaction.id}/>
-                ))}
-        </List>
-        </>
+
+        <div className="transaction-list">
+            <List className="list">
+                {transactions.length === 0 ?"No recent transactions": transactions.map(transaction =>(
+                        <Transaction transaction = {transaction} key={transaction.id}/>
+                    ))}
+            </List>
+        </div>
+        </div>
     )
 }

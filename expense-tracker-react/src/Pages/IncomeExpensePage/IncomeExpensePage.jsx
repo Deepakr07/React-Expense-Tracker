@@ -7,7 +7,7 @@ import { ArrowCircleUp, ArrowCircleDown } from "../../Icons/icons";
 export default function IncomeExpensePage(){
     return(
         <div className="container">
-            <Header />
+            <Balance />
             <div className="inc-exp-container">
                 <IncomeExpenses
                 category= "Income" 
@@ -20,7 +20,6 @@ export default function IncomeExpensePage(){
                 InsideIcon={ArrowCircleDown}
                 symbol = "-"/>
             </div>
-            <Balance />
             <TransactionList />
         </div>
     )

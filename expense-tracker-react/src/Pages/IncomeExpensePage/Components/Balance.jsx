@@ -40,7 +40,7 @@ export default function Balance() {
           fontWeight:"600",
            fontSize:"2.5rem",
            color:"#FFFFFF"
-          }}>${truncateAmount(calculated)}
+          }}>${(truncateAmount(calculated))}
         </Typography>
   </Tooltip>
     </div>
