@@ -1,18 +1,81 @@
 .left-transaction{
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 .transaction-container{
     /* border: 1px solid red; */
-    padding: 1rem;
+    padding: .3rem;
     display: flex;
     width: 100%;
     justify-content: space-between;
 
 }
-.circle-container{
+.red-background{
     background-color:#FEE2E2;
     border-radius: 20px;
     display: flex;
-    padding: 5px;
+    padding: 7px;
+    color: #EF4848;
 }
+.green-background{
+    background-color:#DCFCE7;
+    border-radius: 20px;
+    display: flex;
+    padding: 7px;
+    color: #2ECC71;
+}
+.text-container{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.date{
+    font-weight: lighter;
+    color: #7F8B97;
+    font-size: .9rem;
+}
+
+.income,.expense{
+    display: flex;
+    align-items: center;
+}
+.income{
+    color: #2ECC71;
+    
+}
+.expense{
+    color: #EF4848;
+    
+}
+.card{
+    background-color: #ffffff;
+}
+.transaction-list-container{
+    /* border: 2px solid red; */
+    background-color: #ffffff;
+    max-height: 500px;
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+
+}
+.transaction-list{
+    overflow-y: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100%;
+}
+.transaction-header{
+    position: sticky;
+    z-index: 10;
+}
+.transaction-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Safari */
+  }
+  .transaction-list >Typography{
+    position: fixed;
+  }

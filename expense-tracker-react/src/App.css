@@ -61,14 +61,17 @@ h4 {
   font-size: 20px;
   letter-spacing: 1px;
   margin: 5px 0;
+ 
 }
 
 .money.plus {
   color: #2ecc71;
+  font-weight: 600;
 }
 
 .money.minus {
-  color: #c0392b;
+  color: #EF4848;
+  font-weight: 600;
 }
 
 label {
