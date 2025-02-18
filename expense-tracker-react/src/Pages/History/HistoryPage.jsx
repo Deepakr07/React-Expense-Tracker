@@ -1,4 +1,3 @@
-import Transaction from "./Components/Transaction";
 import TransactionList from "./Components/TransactionList";
 import { DeleteOutline } from "../../Icons/icons";
 

@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { GlobalContext } from "../../../Context/GlobalState";
 import { ListItem } from "@mui/material";
 import Tooltip from "./Tooltip";
 import "./Transaction.css";

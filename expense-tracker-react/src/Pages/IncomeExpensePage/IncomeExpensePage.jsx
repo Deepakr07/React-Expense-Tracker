@@ -1,4 +1,4 @@
-import Header from "./Components/Header";
+
 import IncomeExpenses from "./Components/IncomeExpenses";
 import TransactionList from "./Components/TransactionList";
 import "../../../src/App.css"
