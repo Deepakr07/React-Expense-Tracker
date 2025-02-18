@@ -5,8 +5,9 @@ import Tooltip from "./Tooltip";
 import "./Transaction.css";
 import { ArrowCircleDown, ArrowCircleUp } from "../../../Icons/icons";
 
-export default function Transaction({ transaction }) {
-  
+export default function Transaction({ transaction, DeleteIcon }) {
+
+  const { deleteTransaction } = useContext(GlobalContext);
   const sign = transaction.amount > 0 ? "+" : "-";
   const className = transaction.amount > 0 ? "income" : "expense";
   const circleClass = transaction.amount > 0 ? "green-background" : "red-background";
@@ -46,9 +47,11 @@ export default function Transaction({ transaction }) {
               </div>
             </div>
             <div className={className}>
-              {sign}${Math.abs(transaction.amount)}
+              <span>{sign}${Math.abs(transaction.amount)}</span>
+              <div className="delete-icon"><DeleteIcon onClick={() => deleteTransaction(transaction.id)} sx={{cursor:"pointer"}}/></div>
             </div>
           </div>
+
         </ListItem>{" "}
       </Tooltip>
     </div>

@@ -26,7 +26,7 @@ export default function IncomeExpenses({category,categoryClass, InsideIcon}) {
       </div>
       <div className="right">
         <Typography variant="h6" sx={{fontSize:".8rem",color:"#58616e"}}>{category}</Typography>
-        <Tooltip amount={income}>
+        <Tooltip amount={category==="Income"? income:expense}>
         <Typography  sx={{cursor:"pointer",fontSize:"1.4rem"}} className={`money ${categoryClass}`}>${category==="Income"? truncateAmount(income):truncateAmount(expense)}</Typography>
         </Tooltip>
       </div>

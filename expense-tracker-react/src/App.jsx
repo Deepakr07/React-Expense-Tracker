@@ -5,6 +5,7 @@ import {BrowserRouter} from 'react-router-dom'
 import { Route,Routes } from 'react-router-dom';
 import "./App.css"
 import SimpleBottomNavigation from "./Components/BottomNavBar";
+import HistoryPage from "./Pages/History/HistoryPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path = "/add" element = {<AddTransactionPage />}/>
           <Route path = "/" element = {<IncomeExpensePage />}/>
+          <Route path="/history" element = {<HistoryPage/>}/>
         </Routes>
         <div className="bottom-navigation-bar">
           <SimpleBottomNavigation />

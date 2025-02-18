@@ -4,7 +4,6 @@ import "../../App.css"
 export default function AddTransactionPage(){
     return(
         <div className="container">
-            <Header />
             <AddTransaction />
         </div>
     )
