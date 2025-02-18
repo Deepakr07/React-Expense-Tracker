@@ -17,7 +17,6 @@ export const handleAmountInputChange = (e,setValue) => {
     if (value.length > 30) {
         value = value.substring(0, 30);
     }
-    // value = value.replace(/\d/g, '');
     setValue("text", value); 
 };
 
@@ -28,3 +27,14 @@ export const handleAmountBeforeInput = (e) => {
       e.preventDefault(); 
     }
   };
+
+  export const getCurrentDateAndTime= ()=>{
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    const hours = String(today.getHours()).padStart(2, '0');
+    const minutes = String(today.getMinutes()).padStart(2, '0');
+    const formattedDate = `${day}-${month}-${year} ${hours}:${minutes}`;
+    return formattedDate
+  }
