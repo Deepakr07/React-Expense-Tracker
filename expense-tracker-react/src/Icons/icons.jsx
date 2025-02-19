@@ -6,3 +6,5 @@ export {default as Dashboard} from '@mui/icons-material/Wallet';
 export {default as DeleteOutline} from '@mui/icons-material/DeleteOutline';
 export {default as AddCircle } from '@mui/icons-material/AddCircleOutline';
 export { default as History } from  '@mui/icons-material/AccessTime';
+// import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+export { Wallet } from 'lucide-react';
