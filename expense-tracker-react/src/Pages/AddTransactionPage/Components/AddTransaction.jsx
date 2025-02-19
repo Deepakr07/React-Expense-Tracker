@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { handleAmountBeforeInput, handleAmountInputChange, handleTextInputChange } from "../../../Helpers/validations";
 import { Typography } from "@mui/material";
 import "./AddTransaction.css"
+import Header from "../../../Components/Header";
 import { getCurrentDateAndTime } from "../../../Helpers/validations";
 
 
@@ -44,7 +45,7 @@ export default function AddTransaction() {
         fontSize:"1.2rem",
         marginTop:"1.2rem",
        }}>
-        Add transaction
+        <Header content = "Add Transaction"/>
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control">

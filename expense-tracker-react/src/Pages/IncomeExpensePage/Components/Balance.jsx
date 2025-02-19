@@ -27,7 +27,8 @@ export default function Balance() {
     <div className="balance-container">
       <Typography variant="h7" 
         sx={{
-          fontSize:"1rem",
+          fontSize:".77rem",
+          letterSpacing:"1.2px",
           fontWeight:"900",
           color:"#dfccfc",
           marginBottom:"4px"

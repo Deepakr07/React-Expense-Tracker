@@ -65,17 +65,11 @@
 }
 .transaction-list{
     overflow-y: auto;
-    padding-left: 5px;
+
     padding-right: 5px;
     height: 100%;
 }
-.transaction-header{
-    position: sticky;
-    z-index: 10;
-}
+
 .transaction-list::-webkit-scrollbar {
     display: none; /* Hide scrollbar in Chrome, Safari */
-  }
-  .transaction-list >Typography{
-    position: fixed;
   }
