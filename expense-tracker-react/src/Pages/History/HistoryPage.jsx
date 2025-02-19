@@ -1,8 +1,7 @@
-import TransactionList from "./Components/TransactionList";
-import { DeleteOutline } from "../../Icons/icons";
+import TransactionList from "../../Components/TransactionList";
 
 export default function HistoryPage(){
     return(<div className="container">
-        <TransactionList text = "Transaction History" Icon = {DeleteOutline}/>
+        <TransactionList status={false}/>
     </div>)
 }

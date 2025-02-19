@@ -40,29 +40,22 @@ export default function AddTransaction() {
 
   return (
     <div className="add-transaction-container">
-      <Typography variant="h6"
-       sx={{
-        fontSize:"1.2rem",
-        marginTop:"1.2rem",
-       }}>
         <Header content = "Add Transaction"/>
-      </Typography>
+ 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control">
-          <label htmlFor="text">Description</label>
+          <label htmlFor="text"><Typography variant="h7" sx={{fontSize:".83rem",fontWeight:"500"}}>Description</Typography></label>
           <input
             type="text"
             name="text"
             {...register("text")}
-            placeholder="Enter description..."
+            placeholder="Enter desciption"
             onInput={(e) => handleTextInputChange(e, setValue)}
           />
         </div>
         <div className="form-control">
-          <label htmlFor="amount">
-            Amount 
-            <span className="amount-span"> (negative - expense, positive - income)</span>
-          </label>
+        <label htmlFor="text"><Typography variant="h7" sx={{fontSize:".83rem",fontWeight:"500"}}>Amount</Typography></label>
+            <span className="amount-span"> (negative for expense, positive for income)</span>
           <input
             type="text"
             name="amount"
@@ -72,7 +65,7 @@ export default function AddTransaction() {
             onBeforeInput={(e) => handleAmountBeforeInput(e)}
           />
         </div>
-        <button className={(!textValue || !amountValue)?"btn-disabled":"btn"} disabled={!textValue || !amountValue}>Add transaction</button>
+        <button className={(!textValue || !amountValue)?"btn-disabled":"btn"} disabled={!textValue || !amountValue}>Add Transaction</button>
       </form>
     </div>
   );

@@ -38,14 +38,18 @@
 .income,.expense{
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 .income{
     color: var(--income-color);
     
 }
 .expense{
-    color: var(--expense-color);
+    color:var(--expense-color);
     
+}
+.delete-icon{
+    color: #9CA3AF;
 }
 .card{
     background-color: #ffffff;
@@ -53,10 +57,10 @@
 .transaction-list-container{
     /* border: 2px solid red; */
     background-color: #ffffff;
-    max-height: 500px;
-    border-radius: var(--container-border-radius);
+    max-height: 88vh;
+    border-radius: var(--field-button-border-radius);
     padding: 25px;
-    margin-top: 20px;
+    margin-top: 1.7rem;
     box-shadow: var(--box-shadow);
     display: flex;
     flex-direction: column;
@@ -64,11 +68,16 @@
 }
 .transaction-list{
     overflow-y: auto;
-
     padding-right: 5px;
     height: 100%;
 }
-
+.transaction-header{
+    position: sticky;
+    z-index: 10;
+}
 .transaction-list::-webkit-scrollbar {
     display: none; /* Hide scrollbar in Chrome, Safari */
+  }
+  .transaction-list >Typography{
+    position: fixed;
   }

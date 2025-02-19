@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
-import { GlobalContext } from "../../../Context/GlobalState";
-import { ListItem } from "@mui/material";
-import Tooltip from "./Tooltip";
-import BasicModal from "./Modal"; // Import Modal here
-import { ArrowCircleDown, ArrowCircleUp } from "../../../Icons/icons";
+import { useState } from "react";
 
-export default function Transaction({ transaction, DeleteIcon }) {
+import { ListItem } from "@mui/material";
+import Tooltip from "../Pages/IncomeExpensePage/Components/Tooltip";
+import BasicModal from "../Pages/History/Components/Modal";
+import { ArrowCircleDown, ArrowCircleUp, DeleteOutline } from "../Icons/icons";
+
+export default function Transaction({ transaction, status }) {
 
   const sign = transaction.amount > 0 ? "+" : "-";
   const className = transaction.amount > 0 ? "income" : "expense";
@@ -44,10 +44,10 @@ export default function Transaction({ transaction, DeleteIcon }) {
             </div>
             <div className={className}>
               <span>{sign}${Math.abs(transaction.amount)}</span>
-              <div className="delete-icon">
+              {!status &&<div className="delete-icon">
                 {/* Open modal on clicking the DeleteIcon */}
-                <DeleteIcon onClick={handleOpen} sx={{ cursor: "pointer" }} />
-              </div>
+                <DeleteOutline onClick={handleOpen} sx={{ cursor: "pointer" }} />
+              </div>}
             </div>
           </div>
         </ListItem>

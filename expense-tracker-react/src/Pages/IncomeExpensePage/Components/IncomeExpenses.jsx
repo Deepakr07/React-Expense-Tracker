@@ -2,6 +2,7 @@ import { GlobalContext } from "../../../Context/GlobalState";
 import { useContext } from "react";
 import { Typography } from "@mui/material";
 import Tooltip from "./Tooltip"; 
+import "./Balance.css"
 
 export default function IncomeExpenses({category,categoryClass, InsideIcon}) {
   
@@ -25,9 +26,9 @@ export default function IncomeExpenses({category,categoryClass, InsideIcon}) {
         <InsideIcon sx={{color:"green",fontSize:"1.8rem"}}className = {`money ${categoryClass}`}/>
       </div>
       <div className="right">
-        <Typography variant="h6" sx={{fontSize:".8rem",color:"#58616e"}}>{category}</Typography>
+        <Typography variant="h7" sx={{fontSize:".8rem",color:"#58616e"}}>{category}</Typography>
         <Tooltip amount={category==="Income"? income:expense}>
-        <Typography  sx={{cursor:"pointer",fontSize:"1.4rem"}} className={`money ${categoryClass}`}>${category==="Income"? truncateAmount(income):truncateAmount(expense)}</Typography>
+        <Typography variant="h7" sx={{cursor:"pointer",fontSize:"1.4rem"}} className={`money ${categoryClass}`}>${category==="Income"? truncateAmount(income):truncateAmount(expense)}</Typography>
         </Tooltip>
       </div>
     </div>

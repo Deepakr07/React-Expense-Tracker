@@ -1,8 +1,7 @@
 import { Typography } from "@mui/material"
-// import "./Header.css"
 export default function Header({content}){
     return(
-    <Typography  sx={{fontSize:".9rem",fontWeight:"600"}}>
+    <Typography  variant="h7"sx={{fontSize:".95rem",fontWeight:"500"}}>
         {content}
     </Typography>
     )
