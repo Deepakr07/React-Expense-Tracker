@@ -1,6 +1,6 @@
 .balance-container{
     background: linear-gradient(170deg, #9D53F5 10%, #5948E7 100%);
-    border-radius: 10px;
+    border-radius: var(--container-border-radius);
     padding: 25px;
 
 }

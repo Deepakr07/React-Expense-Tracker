@@ -25,7 +25,7 @@ export default function Transaction({ transaction }) {
             // border: "2px solid red",
             padding: "1.7rem",
             margin: "2px",
-            fontWeight: "600",
+            fontWeight: "500",
           }}
           className={className}
         >

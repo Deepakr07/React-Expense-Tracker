@@ -7,18 +7,11 @@ form label{
     font-size: 15px;
     margin-bottom: 5px;
 }
-.form-control >input{
-    border-radius: 10px;
 
-}
 .add-transaction-container{
     background-color: #ffffff;
     padding: 20px;
     padding-top: 5px;
-    border-radius: 18px;
+    border-radius: var(--container-border-radius);
     box-shadow: var(--box-shadow);
-}
-button{
-    background-color: #9333EA;
-    
 }

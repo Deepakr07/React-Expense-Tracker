@@ -4,6 +4,7 @@ import Transaction from "./Transaction"
 import { Typography, List } from "@mui/material"
 import "./Transaction.css"
 import EmptyListMessage from "../../../Components/EmptyListMessage"
+import Header from "../../../Components/Header"
 
 export default function TransactionList({text,Icon}){
     const { transactions } = useContext(GlobalContext)
@@ -15,7 +16,7 @@ export default function TransactionList({text,Icon}){
             fontWeight:"550",
             marginTop:"5px",
             fontSize:"1rem"
-        }} className="transaction-header">{text}
+        }} className="transaction-header"><Header content={"Transaction History"}/>
         </Typography>
 
         <div className="transaction-list">

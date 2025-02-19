@@ -28,7 +28,7 @@ export default function Transaction({ transaction, DeleteIcon }) {
             borderRadius: "10px",
             padding: "1.7rem",
             margin: "2px",
-            fontWeight: "600",
+            fontWeight: "500",
           }}
           className={className}
         >

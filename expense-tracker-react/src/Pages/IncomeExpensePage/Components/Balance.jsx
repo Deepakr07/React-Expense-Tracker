@@ -27,9 +27,8 @@ export default function Balance() {
     <div className="balance-container">
       <Typography variant="h7" 
         sx={{
-          fontSize:".77rem",
-          letterSpacing:"1.2px",
-          fontWeight:"900",
+          fontSize:".83rem",
+          fontWeight:"500",
           color:"#dfccfc",
           marginBottom:"4px"
           }}>Current Balance
@@ -39,7 +38,7 @@ export default function Balance() {
         sx={{ 
           cursor: "pointer", 
           fontWeight:"600",
-           fontSize:"2.5rem",
+           fontSize:"2.3rem",
            color:"#FFFFFF"
           }}>${(truncateAmount(calculated))}
         </Typography>

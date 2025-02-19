@@ -16,14 +16,14 @@
     border-radius: 20px;
     display: flex;
     padding: 7px;
-    color: #EF4848;
+    color: var(--expense-color);
 }
 .green-background{
     background-color:#DCFCE7;
     border-radius: 20px;
     display: flex;
     padding: 7px;
-    color: #2ECC71;
+    color: var(--income-color);
 }
 .text-container{
     display: flex;
@@ -31,7 +31,6 @@
     gap: 4px;
 }
 .date{
-    font-weight: lighter;
     color: #7F8B97;
     font-size: .9rem;
 }
@@ -41,11 +40,11 @@
     align-items: center;
 }
 .income{
-    color: #2ECC71;
+    color: var(--income-color);
     
 }
 .expense{
-    color: #EF4848;
+    color: var(--expense-color);
     
 }
 .card{
@@ -55,7 +54,7 @@
     /* border: 2px solid red; */
     background-color: #ffffff;
     max-height: 500px;
-    border-radius: 8px;
+    border-radius: var(--container-border-radius);
     padding: 25px;
     margin-top: 20px;
     box-shadow: var(--box-shadow);
