@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ListItem } from "@mui/material";
 import Tooltip from "../Tooltip";
 import BasicModal from "../../Pages/History/Components/Modal";
-import { ArrowCircleDown, ArrowCircleUp, DeleteOutline } from "../../Icons/icons";
+import { ArrowCircleDown, ArrowCircleUp, DeleteOutline, UpdateIcon } from "../../Icons/icons";
 import { Pointer } from "lucide-react";
 
 export default function Transaction({ transaction, incomeExpenseTransaction }) {
@@ -45,9 +45,15 @@ export default function Transaction({ transaction, incomeExpenseTransaction }) {
             </div>
             <div className={className}>
               <span className="transaction-amount">{sign}${Math.abs(transaction.amount)}</span>
-              {!incomeExpenseTransaction &&<div className="delete-icon">
+              {!incomeExpenseTransaction &&<div className="icons-div">
+                <div className="update-icon">
+                {/* Open modal on clicking the UpdateIcon */}
+                <UpdateIcon onClick={handleOpen} cursor="pointer" size="1.4rem"/>
+              </div>
+              <div className="delete-icon">
                 {/* Open modal on clicking the DeleteIcon */}
-                <DeleteOutline onClick={handleOpen} cursor="pointer" fontSize="40px" />
+                <DeleteOutline onClick={handleOpen} cursor="pointer" size="1.4rem" />
+              </div>
               </div>}
             </div>
           </div>
