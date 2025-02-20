@@ -19,3 +19,6 @@ input::placeholder{
     font-size: .9rem;
 }
 
+.button-container{
+    margin-top: 1.45rem;
+}

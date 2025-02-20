@@ -164,3 +164,7 @@ input[type='number'] {
   align-items: center;
   justify-content: center;/* Optional: Background color for the navigation bar */
 }
+
+button{
+  margin-top: 1rem;
+}

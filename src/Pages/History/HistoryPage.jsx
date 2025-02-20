@@ -2,6 +2,6 @@ import TransactionList from "../../Components/TransactionList";
 
 export default function HistoryPage(){
     return(<div className="container">
-        <TransactionList status={false}/>
+        <TransactionList incomeExpenseTransaction = {false} title = "Transaction History"/>
     </div>)
 }

@@ -1,7 +1,7 @@
 import { GlobalContext } from "../../../Context/GlobalState";
 import { useContext } from "react";
 import { Typography } from "@mui/material";
-import Tooltip from "./Tooltip"; 
+import Tooltip from "../../../Components/Tooltip"; 
 import "./Balance.css"
 
 export default function IncomeExpenses({category,categoryClass, InsideIcon}) {

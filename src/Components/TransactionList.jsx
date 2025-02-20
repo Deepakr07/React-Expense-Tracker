@@ -1,12 +1,12 @@
 import { useContext } from "react"
 import { GlobalContext } from "../Context/GlobalState"
-import Transaction from "./Transaction"
+import Transaction from "./Transaction/Transaction"
 import { Typography, List } from "@mui/material"
-import "./Transaction.css"
+import "./Transaction/Transaction.css"
 import EmptyListMessage from "./EmptyListMessage"
 import Header from "./Header"
 
-export default function TransactionList({status}){
+export default function TransactionList({incomeExpenseTransaction, title}){
     const { transactions } = useContext(GlobalContext)
     
     let sortedTransactions = [...transactions]    
@@ -17,9 +17,7 @@ export default function TransactionList({status}){
         return dateB - dateA; 
     });
 
-    const displayTransactions = status? sortedTransactions.slice(0,3):transactions
-
-    const componentTitle = status?"Recent Transactions":"Transaction History"
+    const displayTransactions = incomeExpenseTransaction? sortedTransactions.slice(0,3):sortedTransactions
 
     return(
         <div className="transaction-list-container">
@@ -28,7 +26,7 @@ export default function TransactionList({status}){
             fontWeight:"500",
             marginTop:"5px",
             fontSize:"1rem"
-        }} className="transaction-header"><Header content={componentTitle}/>
+        }} className="transaction-header"><Header content={title}/>
         </Typography>
 
         <div className="transaction-list">
@@ -36,7 +34,7 @@ export default function TransactionList({status}){
                 {
                 transactions.length === 0 ?<EmptyListMessage />: 
                 displayTransactions
-                .map(transaction =>(<Transaction transaction = {transaction} key={transaction.id} status = {status}/>))
+                .map(transaction =>(<Transaction transaction = {transaction} key={transaction.id} incomeExpenseTransaction = {incomeExpenseTransaction}/>))
                 }
             </List>
         </div>

@@ -29,21 +29,21 @@ export default function BasicModal({ open="true", handleClose, transaction }) {
       
       <Box sx={style}>
 
-        <Typography id="modal-modal-description"variant="h5" sx={{ mt: 2 ,mb:2}}>
+        <Typography id="modal-modal-description"variant="h7" sx={{ fontSize:"1.25rem",mt: 2 ,fontWeight:"400"}}>
           Delete Transaction
         </Typography>
 
-        <Typography id="modal-modal-title" sx={{color:"#6B7280",}}>
+        <Typography id="modal-modal-title" sx={{color:"#6B7280",marginTop:".7rem",fontSize:".93rem"}}>
           Are you sure you want to delete this transaction? This action cannot be undone.
         </Typography>
 
         <Box sx={{display:"flex",justifyContent:"flex-end",gap:"10px",mt:"20px"}}>
 
-        <Button sx = {{backgroundColor:"#ffffff",color:"black",border:".5px solid grey",fontWeight:"bold",textTransform:"none"}} onClick={handleClose}>
+        <Button sx = {{backgroundColor:"#ffffff",color:"black",borderRadius:"5px",fontWeight:"bold",textTransform:"none",border: "0.1px solid rgba(192, 192, 192, 0.5)"}} onClick={handleClose}>
             Cancel
         </Button>
 
-        <Button sx = {{backgroundColor:"#EF4848",color:"white", fontWeight:"bold",textTransform:"none"}}onClick={() => {deleteTransaction(transaction.id) }}>
+        <Button sx = {{backgroundColor:"#EF4848",borderRadius:"5px",color:"white", fontWeight:"bold",textTransform:"none"}}onClick={() => {deleteTransaction(transaction.id) }}>
           Delete
         </Button>
 
