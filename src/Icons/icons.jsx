@@ -4,3 +4,4 @@ export { Trash2 as DeleteOutline } from 'lucide-react';
 export { CirclePlus as AddCircle} from 'lucide-react';
 export { CircleArrowUp as ArrowCircleUp} from 'lucide-react';
 export { CircleArrowDown as ArrowCircleDown} from 'lucide-react';
+export { RefreshCcwDot as UpdateIcon } from 'lucide-react';

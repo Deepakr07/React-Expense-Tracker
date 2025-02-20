@@ -50,7 +50,7 @@
     justify-content: center;
     
 }
-.delete-icon{
+.delete-icon,.update-icon{
     color: #9CA3AF;
     display: flex;
     align-items: center;
@@ -81,11 +81,17 @@
     z-index: 10;
 }
 .transaction-list::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in Chrome, Safari */
+    display: none; 
   }
   .transaction-list >Typography{
     position: fixed;
   }
   .transaction-amount{
     font-size: 1.4rem;
+  }
+  .icons-div{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    
   }
