@@ -1,4 +1,3 @@
-git 
 export { Wallet as Dashboard } from 'lucide-react';
 export { Clock as History } from 'lucide-react';
 export { Trash2 as DeleteOutline } from 'lucide-react';
