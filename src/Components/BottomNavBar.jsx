@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { AddCircle, History, Wallet } from '../Icons/icons';
+import { AddCircle, History, Dashboard } from '../Icons/icons';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function SimpleBottomNavigation() {
@@ -36,7 +36,7 @@ export default function SimpleBottomNavigation() {
           component={Link} 
           to="/" 
           label="Dashboard" 
-          icon={<Wallet />}
+          icon={<Dashboard />}
           sx={{
             color: value === 0 ? '#9333EA' : '#6B7280', // Active icon color (purple) when selected
             '&.Mui-selected': {

@@ -65,7 +65,7 @@ export default function AddTransaction() {
             onBeforeInput={(e) => handleAmountBeforeInput(e)}
           />
         </div>
-        <button className={(!textValue || !amountValue)?"btn-disabled":"btn"} disabled={!textValue || !amountValue}>Add Transaction</button>
+        <div className="button-container"><button className={(!textValue || !amountValue)?"btn-disabled":"btn"} disabled={!textValue || !amountValue}>Add Transaction</button></div>
       </form>
     </div>
   );

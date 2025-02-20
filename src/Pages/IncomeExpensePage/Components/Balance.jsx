@@ -1,6 +1,6 @@
 import { useContext} from "react";
 import { GlobalContext } from "../../../Context/GlobalState";
-import Tooltip from "./Tooltip"; 
+import Tooltip from "../../../Components/Tooltip"; 
 import { Typography } from "@mui/material";
 // import "./Balance.css"
 export default function Balance() {

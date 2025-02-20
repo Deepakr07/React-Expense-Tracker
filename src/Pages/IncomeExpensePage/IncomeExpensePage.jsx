@@ -19,7 +19,7 @@ export default function IncomeExpensePage(){
                 InsideIcon={ArrowCircleDown}
                 symbol = "-"/>
             </div>
-            <TransactionList status={true}/>
+            <TransactionList incomeExpenseTransaction = {true} title = "Recent Transactions"/>
         </div>
     )
 }
