@@ -1,0 +1,83 @@
+.left-transaction{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.transaction-container{
+    /* border: 1px solid red; */
+    padding: .3rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+.red-background{
+    background-color:#FEE2E2;
+    border-radius: 20px;
+    display: flex;
+    padding: 7px;
+    color: var(--expense-color);
+}
+.green-background{
+    background-color:#DCFCE7;
+    border-radius: 20px;
+    display: flex;
+    padding: 7px;
+    color: var(--income-color);
+}
+.text-container{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.date{
+    color: #7F8B97;
+    font-size: .9rem;
+}
+
+.income,.expense{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.income{
+    color: var(--income-color);
+    
+}
+.expense{
+    color:var(--expense-color);
+    
+}
+.delete-icon{
+    color: #9CA3AF;
+}
+.card{
+    background-color: #ffffff;
+}
+.transaction-list-container{
+    /* border: 2px solid red; */
+    background-color: #ffffff;
+    max-height: 88vh;
+    border-radius: var(--field-button-border-radius);
+    padding: 25px;
+    margin-top: 1.7rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+
+}
+.transaction-list{
+    overflow-y: auto;
+    padding-right: 5px;
+    height: 100%;
+}
+.transaction-header{
+    position: sticky;
+    z-index: 10;
+}
+.transaction-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Safari */
+  }
+  .transaction-list >Typography{
+    position: fixed;
+  }
