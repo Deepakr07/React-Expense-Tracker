@@ -61,7 +61,7 @@ export default function TransactionForm({open = false, handleClose, transaction 
       addTransaction(newTransaction);
     }
     reset();
-    handleClose();
+    if (handleClose) handleClose();
   }
   const formContent = (
     <div className="add-transaction-container">
