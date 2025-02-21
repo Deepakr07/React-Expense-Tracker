@@ -1,11 +1,9 @@
 import { useState } from "react";
-
 import { ListItem } from "@mui/material";
 import Tooltip from "../Tooltip";
 import BasicModal from "../../Pages/History/Components/Modal";
 import { ArrowCircleDown, ArrowCircleUp, DeleteOutline, UpdateIcon } from "../../Icons/icons";
-import { Pointer } from "lucide-react";
-
+import TransactionForm from "../TransactionForm";
 export default function Transaction({ transaction, incomeExpenseTransaction }) {
 
   const sign = transaction.amount > 0 ? "+" : "-";
@@ -14,7 +12,10 @@ export default function Transaction({ transaction, incomeExpenseTransaction }) {
   const Icon = transaction.amount > 0 ? ArrowCircleUp : ArrowCircleDown;
 
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true); 
+  const [updateOpen, setUpdateOpen] = useState(false)
+  const handleOpen = () => setOpen(true);
+  const handleUpdateOpen = ()=> setUpdateOpen(true);
+  const handleUpdateClose = () => setUpdateOpen(false) 
   const handleClose = () => setOpen(false); 
 
   function truncateTransactionEntity(text) {
@@ -47,11 +48,10 @@ export default function Transaction({ transaction, incomeExpenseTransaction }) {
               <span className="transaction-amount">{sign}${Math.abs(transaction.amount)}</span>
               {!incomeExpenseTransaction &&<div className="icons-div">
                 <div className="update-icon">
-                {/* Open modal on clicking the UpdateIcon */}
-                <UpdateIcon onClick={handleOpen} cursor="pointer" size="1.4rem"/>
+                <UpdateIcon onClick={handleUpdateOpen} cursor="pointer" size="1.4rem"/>
               </div>
               <div className="delete-icon">
-                {/* Open modal on clicking the DeleteIcon */}
+
                 <DeleteOutline onClick={handleOpen} cursor="pointer" size="1.4rem" />
               </div>
               </div>}
@@ -60,8 +60,8 @@ export default function Transaction({ transaction, incomeExpenseTransaction }) {
         </ListItem>
       </Tooltip>
 
-      {/* Pass modal state to BasicModal */}
       <BasicModal open={open} handleClose={handleClose} transaction={transaction}/>
+      {updateOpen && <TransactionForm open={updateOpen} handleClose={handleUpdateClose} transaction={transaction} title = "Edit Transaction" buttonText = "Update Transaction"/>}
     </div>
   );
 }

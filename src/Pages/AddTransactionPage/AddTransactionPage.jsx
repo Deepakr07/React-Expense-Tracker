@@ -1,9 +1,8 @@
-import AddTransaction from "./Components/AddTransaction";
-import "../../App.css"
+import TransactionForm from "../../Components/TransactionForm"
 export default function AddTransactionPage(){
     return(
         <div className="container">
-            <AddTransaction />
+            <TransactionForm title = "Add Transaction" buttonText = "Add Transaction"/>
         </div>
     )
 }

@@ -60,7 +60,6 @@
     background-color: #ffffff;
 }
 .transaction-list-container{
-    /* border: 2px solid red; */
     background-color: #ffffff;
     max-height: 88vh;
     border-radius: var(--field-button-border-radius);
@@ -69,7 +68,6 @@
     box-shadow: var(--box-shadow);
     display: flex;
     flex-direction: column;
-
 }
 .transaction-list{
     overflow-y: auto;
