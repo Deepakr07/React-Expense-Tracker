@@ -8,6 +8,8 @@ import Header from "./Header";
 import { getCurrentDateAndTime } from "../Helpers/validations";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import { Button } from "@/components/ui/button"
+
 
 
 export default function TransactionForm({open = false, handleClose, transaction = null ,title, buttonText}) {
@@ -89,7 +91,7 @@ export default function TransactionForm({open = false, handleClose, transaction 
         onBeforeInput={(e) => handleAmountBeforeInput(e)}
       />
     </div>
-    <div className="button-container"><button className={(!textValue || !amountValue)?"btn-disabled":"btn"} disabled={!textValue || !amountValue}>{buttonText}</button></div>
+    <div className="button-container"><Button className={(!textValue || !amountValue)?"btn-disabled":"btn"} disabled={!textValue || !amountValue} >{buttonText}</Button></div>
   </form>
 </div>
   )
