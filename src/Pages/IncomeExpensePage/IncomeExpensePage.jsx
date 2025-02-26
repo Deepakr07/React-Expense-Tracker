@@ -2,8 +2,9 @@
 import IncomeExpenses from "./Components/IncomeExpenses";
 import TransactionList from "../../Components/TransactionList";
 import Balance from "./Components/Balance"
-import { ArrowCircleUp, ArrowCircleDown } from "../../Icons/icons";
+import { ArrowCircleUp, ArrowCircleDown } from "../../Core/Icons/icons";
 export default function IncomeExpensePage(){
+
     return(
         <div className="container">
             <Balance />
@@ -19,7 +20,7 @@ export default function IncomeExpensePage(){
                 InsideIcon={ArrowCircleDown}
                 symbol = "-"/>
             </div>
-            <TransactionList incomeExpenseTransaction = {true} title = "Recent Transactions"/>
+            <TransactionList incomeExpenseTransaction = {true} title = "Recent Transactions" />
         </div>
     )
 }

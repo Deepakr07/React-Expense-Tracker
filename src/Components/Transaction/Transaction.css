@@ -50,7 +50,7 @@
     justify-content: center;
     
 }
-.delete-icon{
+.delete-icon,.update-icon{
     color: #9CA3AF;
     display: flex;
     align-items: center;
@@ -60,7 +60,6 @@
     background-color: #ffffff;
 }
 .transaction-list-container{
-    /* border: 2px solid red; */
     background-color: #ffffff;
     max-height: 88vh;
     border-radius: var(--field-button-border-radius);
@@ -69,7 +68,6 @@
     box-shadow: var(--box-shadow);
     display: flex;
     flex-direction: column;
-
 }
 .transaction-list{
     overflow-y: auto;
@@ -81,11 +79,17 @@
     z-index: 10;
 }
 .transaction-list::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in Chrome, Safari */
+    display: none; 
   }
   .transaction-list >Typography{
     position: fixed;
   }
   .transaction-amount{
     font-size: 1.4rem;
+  }
+  .icons-div{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    
   }

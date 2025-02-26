@@ -6,8 +6,8 @@ import "./Transaction/Transaction.css"
 import EmptyListMessage from "./EmptyListMessage"
 import Header from "./Header"
 
-export default function TransactionList({incomeExpenseTransaction, title}){
-    const { transactions } = useContext(GlobalContext)
+export default function TransactionList({incomeExpenseTransaction, title,buttonOnClick}){
+    const { transactions} = useContext(GlobalContext)
     
     let sortedTransactions = [...transactions]    
 
@@ -34,7 +34,7 @@ export default function TransactionList({incomeExpenseTransaction, title}){
                 {
                 transactions.length === 0 ?<EmptyListMessage />: 
                 displayTransactions
-                .map(transaction =>(<Transaction transaction = {transaction} key={transaction.id} incomeExpenseTransaction = {incomeExpenseTransaction}/>))
+                .map(transaction =>(<Transaction transaction = {transaction} key={transaction.id} incomeExpenseTransaction = {incomeExpenseTransaction} buttonOnClick = {buttonOnClick}/>))
                 }
             </List>
         </div>

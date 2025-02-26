@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-const Tooltip = ({ amount, children }) => {
+const Tooltip = ({ amount, children, isText = false }) => {
+  
   const [showTooltip, setShowTooltip] = useState(false);
-
+  const result = isText? amount: "$"+amount
   return (
     <div
       style={{ position: "relative" }}
@@ -26,7 +27,7 @@ const Tooltip = ({ amount, children }) => {
             zIndex: 10,
           }}
         >
-          ${amount}
+          {result}
         </div>
       )}
     </div>

@@ -3,7 +3,7 @@ import AddTransactionPage from "./Pages/AddTransactionPage/AddTransactionPage";
 import IncomeExpensePage from "./Pages/IncomeExpensePage/IncomeExpensePage";
 import {BrowserRouter} from 'react-router-dom'
 import { Route,Routes } from 'react-router-dom';
-import "./App.css"
+import "./global.css"
 import SimpleBottomNavigation from "./Components/BottomNavBar";
 import HistoryPage from "./Pages/History/HistoryPage";
 
