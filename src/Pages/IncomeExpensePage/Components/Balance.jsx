@@ -2,7 +2,7 @@ import { useContext} from "react";
 import { GlobalContext } from "../../../Context/GlobalState";
 import Tooltip from "../../../Components/Tooltip"; 
 import { Typography } from "@mui/material";
-import { truncateAmount } from "../../../Core/Helpers/validations";
+import { truncateAmount } from "../../../Core/Helpers/amountUtils";
 // import "./Balance.css"
 export default function Balance() {
   const { transactions } = useContext(GlobalContext);
