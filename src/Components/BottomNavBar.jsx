@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { AddCircle, History, Dashboard } from '../Icons/icons';
+import { AddCircle, History, Dashboard } from '../Core/Icons/icons';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function SimpleBottomNavigation() {

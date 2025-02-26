@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ListItem } from "@mui/material";
 import Tooltip from "../Tooltip";
 import BasicModal from "../../Pages/History/Components/Modal";
-import { ArrowCircleDown, ArrowCircleUp, DeleteOutline, UpdateIcon } from "../../Icons/icons";
+import { ArrowCircleDown, ArrowCircleUp, DeleteOutline, UpdateIcon } from "../../Core/Icons/icons";
 import TransactionForm from "../TransactionForm";
 
 
