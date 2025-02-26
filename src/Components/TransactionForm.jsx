@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button"
 
 
 
-export default function TransactionForm({open = false, handleClose, transaction = null ,title, buttonText}) {
+export default function TransactionForm({open = false, handleClose, transaction = null ,title, buttonText, buttonOnClick}) {
   
   const {
     register,
@@ -21,18 +21,15 @@ export default function TransactionForm({open = false, handleClose, transaction 
     watch,
     setValue,
   } = useForm({
-    defaultValues: {
+      defaultValues: {
       text:transaction?.text || "",
       amount:transaction?.amount || "",
     }
   }
   );
 
-
-
   const textValue = watch("text");
   const amountValue = watch("amount");
-  const { addTransaction,editTransaction } = useContext(GlobalContext);
 
   useEffect(()=>{
     if(transaction){
@@ -42,29 +39,21 @@ export default function TransactionForm({open = false, handleClose, transaction 
   },[transaction,setValue])
 
   const onSubmit = ({ text, amount }) => {
-    
-    const formattedDate = getCurrentDateAndTime()
-    if(transaction) {
+      const formattedDate = getCurrentDateAndTime()
       const updatedTransaction = {
-        id:transaction.id,
+        id:transaction?transaction.id:Math.floor(Math.random() * 100000000000),
         text,
         amount,
         date:formattedDate,
       }
-      editTransaction(updatedTransaction)
+      console.log("before calling update function - ")
+      buttonOnClick(updatedTransaction)
+      console.log("after calling update function - ")
+      reset();
+      if (handleClose) handleClose();
     }
-    else{
-        const newTransaction = {
-        id: Math.floor(Math.random() * 100000000000),
-        text,
-        amount,
-        date:formattedDate
-      }
-      addTransaction(newTransaction);
-    }
-    reset();
-    if (handleClose) handleClose();
-  }
+
+
   const formContent = (
     <div className="add-transaction-container">
     <Header content = {title}/>
