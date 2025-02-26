@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Typography } from "@mui/material";
 import Tooltip from "../../../Components/Tooltip"; 
 import "./Balance.css"
-import { truncateAmount } from "@/Core/Helpers/validations";
+import { truncateAmount } from "@/Core/Helpers/amountUtils";
 export default function IncomeExpenses({category,categoryClass, InsideIcon}) {
   
   const { transactions } = useContext(GlobalContext);
