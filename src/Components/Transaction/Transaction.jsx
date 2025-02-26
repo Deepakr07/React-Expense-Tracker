@@ -4,7 +4,9 @@ import Tooltip from "../Tooltip";
 import BasicModal from "../../Pages/History/Components/Modal";
 import { ArrowCircleDown, ArrowCircleUp, DeleteOutline, UpdateIcon } from "../../Icons/icons";
 import TransactionForm from "../TransactionForm";
-export default function Transaction({ transaction, incomeExpenseTransaction }) {
+
+
+export default function Transaction({ transaction, incomeExpenseTransaction,buttonOnClick }) {
 
   const sign = transaction.amount > 0 ? "+" : "-";
   const className = transaction.amount > 0 ? "income" : "expense";
@@ -61,7 +63,7 @@ export default function Transaction({ transaction, incomeExpenseTransaction }) {
       </Tooltip>
 
       <BasicModal open={open} handleClose={handleClose} transaction={transaction}/>
-      {updateOpen && <TransactionForm open={updateOpen} handleClose={handleUpdateClose} transaction={transaction} title = "Edit Transaction" buttonText = "Update Transaction"/>}
+      {updateOpen && <TransactionForm open={updateOpen} handleClose={handleUpdateClose} transaction={transaction} title = "Edit Transaction" buttonText = "Update Transaction" buttonOnClick ={buttonOnClick}/>}
     </div>
   );
 }
