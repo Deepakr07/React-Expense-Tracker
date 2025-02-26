@@ -32,6 +32,5 @@ export default function IncomeExpenses({category,categoryClass, InsideIcon}) {
         </Tooltip>
       </div>
     </div>
-
   );
 }

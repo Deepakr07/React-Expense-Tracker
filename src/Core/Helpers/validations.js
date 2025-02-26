@@ -29,10 +29,6 @@ export const handleAmountBeforeInput = (e) => {
   };
 
   export const getCurrentDateAndTime = ()=>{
-    const today = new Date();
-    return `${String(today.getDate()).padStart(2,'0')}-
-            ${String(today.getMonth()+1).padStart(2,'0')}-
-            ${String(today.getFullYear()).padStart(2,'0')} 
-            ${String(today.getHours()).padStart(2,'0')}:
-            ${String(today.getMinutes()).padStart(2,'0')}`
+    const formattedDateTime = new Date().toLocaleDateString("en-GB").replace(/\//g, "-") + " " + new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", hour12: false });
+    return formattedDateTime
   }
