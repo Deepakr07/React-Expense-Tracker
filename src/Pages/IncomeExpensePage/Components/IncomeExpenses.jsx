@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Typography } from "@mui/material";
 import Tooltip from "../../../Components/Tooltip"; 
 import "./Balance.css"
-
+import { truncateAmount } from "@/Core/Helpers/validations";
 export default function IncomeExpenses({category,categoryClass, InsideIcon}) {
   
   const { transactions } = useContext(GlobalContext);
@@ -15,10 +15,7 @@ export default function IncomeExpenses({category,categoryClass, InsideIcon}) {
     else expense += Math.abs(transaction.amount);
   });
 
-  const truncateAmount = (amount) => {
-    const amountStr = amount.toString();
-    return amountStr.length > 6 ? `${amountStr.slice(0, 6)}...` : parseFloat(amountStr).toFixed(2);
-  };
+
 
   return (
     <div className="card">
