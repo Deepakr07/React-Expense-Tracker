@@ -26,7 +26,7 @@ export default function Transaction({ transaction, incomeExpenseTransaction,butt
 
   return (
     <div className="transaction-card">
-      <Tooltip amount={transaction.text}>
+      <Tooltip amount={transaction.text} isText = {true}>
         <ListItem
           sx={{
             borderRadius: "10px",
