@@ -2,9 +2,7 @@
 import IncomeExpenses from "./Components/IncomeExpenses";
 import TransactionList from "../../Components/TransactionList";
 import Balance from "./Components/Balance"
-import { useContext } from "react";
-import { ArrowCircleUp, ArrowCircleDown } from "../../Icons/icons";
-import { GlobalContext } from "../../Context/GlobalState";
+import { ArrowCircleUp, ArrowCircleDown } from "../../Core/Icons/icons";
 export default function IncomeExpensePage(){
 
     return(

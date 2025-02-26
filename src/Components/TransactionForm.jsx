@@ -1,11 +1,11 @@
 import { GlobalContext } from "../Context/GlobalState";
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { handleAmountBeforeInput, handleAmountInputChange, handleTextInputChange } from "../Helpers/validations";
+import { handleAmountBeforeInput, handleAmountInputChange, handleTextInputChange } from "../Core/Helpers/validations";
 import { Typography } from "@mui/material";
 import "./AddTransaction.css"
 import Header from "./Header";
-import { getCurrentDateAndTime } from "../Helpers/validations";
+import { getCurrentDateAndTime } from "../Core/Helpers/validations";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { Button } from "@/components/ui/button"
