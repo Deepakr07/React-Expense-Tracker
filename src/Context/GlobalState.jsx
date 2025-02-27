@@ -1,12 +1,9 @@
 import { createContext,useReducer } from "react";
 import AppReducer from "./AppReducer";
+
+
 const initialState =  {
-    transactions:  [
-        // { id: 1, text: 'Flower', amount: -20},
-        // { id: 2, text: 'Salary', amount: 300},
-        // { id: 3, text: 'Book', amount: -10},
-        // { id: 4, text: 'Camera', amount: 150}
-    ]
+    transactions:  []
 }
 
 //creating context
@@ -34,16 +31,18 @@ export const  GlobalProvider = ({ children }) => {
             type: 'EDIT_TRANSACTION',
             payload: {
                 id: updatedTransaction.id,  
-                data: updatedTransaction // This contains the new values
+                data: updatedTransaction 
             }
         });
     }
+
 
     return(
         <GlobalContext.Provider value={{
             transactions: state.transactions,
             deleteTransaction,
-            addTransaction,editTransaction
+            addTransaction,
+            editTransaction,
         }}>
             {children}
         </GlobalContext.Provider>
