@@ -1,24 +1,35 @@
-import { useState } from "react";
 import { ListItem } from "@mui/material";
 import Tooltip from "../Tooltip";
 import BasicModal from "../../Pages/History/Components/Modal";
 import { ArrowCircleDown, ArrowCircleUp, DeleteOutline, UpdateIcon } from "../../Core/Icons/icons";
 import TransactionForm from "../TransactionForm";
-
+import { useReducer } from "react";
+import { reducer } from "./transactionReducer";
 
 export default function Transaction({ transaction, incomeExpenseTransaction,buttonOnClick }) {
-
   const sign = transaction.amount > 0 ? "+" : "-";
   const className = transaction.amount > 0 ? "income" : "expense";
   const circleClass = transaction.amount > 0 ? "green-background" : "red-background";
   const Icon = transaction.amount > 0 ? ArrowCircleUp : ArrowCircleDown;
+  
+  const initialState = {
+    openDelete:false,
+    openUpdate:false
+  }
 
-  const [open, setOpen] = useState(false);
-  const [updateOpen, setUpdateOpen] = useState(false)
-  const handleOpen = () => setOpen(true);
-  const handleUpdateOpen = ()=> setUpdateOpen(true);
-  const handleUpdateClose = () => setUpdateOpen(false) 
-  const handleClose = () => setOpen(false); 
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  function toggleDeleteModalAction(){
+    dispatch({
+        type:'DELETE_MODAL_ACTION'
+    })
+  }
+
+function toggleUpdateModalAction(){
+    dispatch({
+        type:'UPDATE_MODAL_ACTION'
+    })
+  }
 
   function truncateTransactionEntity(text) {
     return text.length > 17 ? `${text.slice(0, 17)}...` : text;
@@ -50,11 +61,11 @@ export default function Transaction({ transaction, incomeExpenseTransaction,butt
               <span className="transaction-amount">{sign}${Math.abs(transaction.amount)}</span>
               {!incomeExpenseTransaction &&<div className="icons-div">
                 <div className="update-icon">
-                <UpdateIcon onClick={handleUpdateOpen} cursor="pointer" size="1.4rem"/>
+                <UpdateIcon onClick={toggleUpdateModalAction} cursor="pointer" size="1.4rem"/>
               </div>
               <div className="delete-icon">
 
-                <DeleteOutline onClick={handleOpen} cursor="pointer" size="1.4rem" />
+                <DeleteOutline onClick={toggleDeleteModalAction} cursor="pointer" size="1.4rem" />
               </div>
               </div>}
             </div>
@@ -62,8 +73,8 @@ export default function Transaction({ transaction, incomeExpenseTransaction,butt
         </ListItem>
       </Tooltip>
 
-      <BasicModal open={open} handleClose={handleClose} transaction={transaction}/>
-      {updateOpen && <TransactionForm open={updateOpen} handleClose={handleUpdateClose} transaction={transaction} title = "Edit Transaction" buttonText = "Update Transaction" buttonOnClick ={buttonOnClick}/>}
+      <BasicModal open={state.openDelete} handleClose={toggleDeleteModalAction} transaction={transaction}/>
+      {state.openUpdate && <TransactionForm open={state.openUpdate} handleClose={toggleUpdateModalAction} transaction={transaction} title = "Edit Transaction" buttonText = "Update Transaction" buttonOnClick ={buttonOnClick}/>}
     </div>
   );
 }

@@ -18,7 +18,7 @@ const style = {
 width:".332"
 };
 
-export default function BasicModal({ open="true", handleClose, transaction }) {
+export default function BasicModal({ open, handleClose, transaction }) {
     const { deleteTransaction } = useContext(GlobalContext);
   return (
     <Modal
