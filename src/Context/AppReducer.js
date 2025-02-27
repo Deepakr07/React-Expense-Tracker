@@ -17,7 +17,7 @@ export default (state, action) =>{
                         transaction.id === action.payload.id
                             ? { ...transaction, ...action.payload.data } : transaction
                     )
-                };  
+                };   
         default:
             return state
     }
