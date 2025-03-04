@@ -24,4 +24,4 @@ export default function IncomeExpensePage(){
             <TransactionList incomeExpenseTransaction = {true} title = "Recent Transactions" />
         </div>
     )
-}
+} 
