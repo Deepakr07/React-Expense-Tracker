@@ -107,7 +107,7 @@ export async function deleteExpense(id) {
                 message: "Unexpected response while deleting expense",
                 statusCode: response.status,
                 data: response.data
-            };
+            }; 
         }
     } catch (error) {
         if (error.response) {
