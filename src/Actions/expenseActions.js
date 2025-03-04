@@ -4,34 +4,16 @@ const API_BASE_URL = import.meta.env.VITE_BASE_URL
 
 export async function getExpenses(page, limit ,id) {
     try{
-        console.log(id)
-        console.log(API_BASE_URL)
-            
-            if (id) {
-                const response = await axios.get(`${API_BASE_URL}/expenses/${id}`);
-                console.log(response.data);
-                if (response.status === 200) {
-                    return response.data;
-                }
-                else if (response.status === 204) {
-                    return { message: "No content found", data: [], statusCode: response.status };
-                }
-            }
-                else {
-                    const response = await axios.get(`${API_BASE_URL}/expenses/`, {
-                        params: {
-                            page: page,
-                            limit: limit
-                        }
-                    });
-                    console.log(response.data);
-                    if (response.status === 200) {
-                        return response.data;
-                    }
-                    else if (response.status === 204) {
-                        return { message: "No content found", data: [], statusCode: response.status };
-                    }
-                }
+        const API_URL = id? `${API_BASE_URL}/expenses/${id}`: `${API_BASE_URL}/expenses/`
+        const params = id?{}:{params: {page: page,limit: limit}}
+        const response = await axios.get(API_URL,params)
+
+        if (response.status === 200) {
+            return response.data;
+        }
+        else if (response.status === 204) {
+            return { message: "No content found", data: [], statusCode: response.status };
+        }
     }
     catch (error){
         console.error(
