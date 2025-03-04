@@ -2,51 +2,138 @@ import axios from "axios"
 
 const API_BASE_URL = import.meta.env.VITE_BASE_URL
 
-export async function getAllExpenses(page = 1, limit = 3) {
+export async function getExpenses(page, limit ,id) {
     try{
+        console.log(id)
         console.log(API_BASE_URL)
-        const response = await axios.get(`${API_BASE_URL}/expenses`, {
-            params: {
-                page: page,
-                limit: limit
+            
+            if (id) {
+                const response = await axios.get(`${API_BASE_URL}/expenses/${id}`);
+                console.log(response.data);
+                if (response.status === 200) {
+                    return response.data;
+                }
+                else if (response.status === 204) {
+                    return { message: "No content found", data: [], statusCode: response.status };
+                }
             }
-        })
-        console.log(response.data)
-        return response.data
+                else {
+                    const response = await axios.get(`${API_BASE_URL}/expenses/`, {
+                        params: {
+                            page: page,
+                            limit: limit
+                        }
+                    });
+                    console.log(response.data);
+                    if (response.status === 200) {
+                        return response.data;
+                    }
+                    else if (response.status === 204) {
+                        return { message: "No content found", data: [], statusCode: response.status };
+                    }
+                }
     }
     catch (error){
-        console.error("Error fetching expenses ",error)
+        console.error(
+            { message:"Error fetching expense: ",
+              statusCode:error.error.response ? error.response.status : "Unknown",
+              errorMessage:error.message
+            })
         throw error
     }
 }
 
 export async function addExpense(expenseData) {
     try {
-        const response = await axios.post(`${API_BASE_URL}/expenses`,expenseData)
-        return response.data
-    }
-    catch (error) {
-        console.error("Error adding expense: ",error)
-        throw error
-    }
-}
+        const response = await axios.post(`${API_BASE_URL}/expenses`, expenseData);
 
-export async function updateExpense (id, updateData ) {
-    try { 
-        const response = await axios.put(`${API_BASE_URL}/expenses/${id}`, updateData)
-        return response.data
+        if (response.status === 201) {
+            return response.data; 
+        } else if (response.status === 400) {
+            return { message: "Bad request. Please check the data sent.", statusCode: 400 };
+        } else {
+            return {
+                message: "Unexpected response from the server",
+                statusCode: response.status,
+                data: response.data
+            };
+        }
     } catch (error) {
-        console.error("Error updating expense :",error)
-        throw error
+
+        console.error({
+            message: "Error adding expense:",
+            statusCode: error.response ? error.response.status : "Unknown",
+            errorMessage: error.message
+        });
+        throw error;
     }
 }
 
-export async function deleteExpense () {
+export async function updateExpense(id, updateData) {
     try {
-        await axios.delete(`${API_BASE_URL}/expenses/${id}`)
-    }
-    catch (error) {
-        console.error("Error deleting expense:", error)
-        throw error
+        const response = await axios.put(`${API_BASE_URL}/expenses/${id}`, updateData);
+        if (response.status === 200) {
+            return response.data; 
+        } else if (response.status === 204) {
+            return { message: "No content returned after update", data: [] };
+        } else {
+            return {
+                message: "Unexpected response from the server",
+                statusCode: response.status,
+                data: response.data
+            };
+        }
+    } catch (error) {
+        console.error({
+            message: "Error updating expense:",
+            statusCode: error.response ? error.response.status : "Unknown",
+            errorMessage: error.message
+        });
+        throw error; 
     }
 }
+
+
+export async function deleteExpense(id) {
+    try {
+        const response = await axios.delete(`${API_BASE_URL}/expenses/${id}`);
+        if (response.status === 200) {
+            return {
+                message: response.data.message,
+                deletedExpense: response.data.deletedExpense 
+            };
+        } else {
+            return {
+                message: "Unexpected response while deleting expense",
+                statusCode: response.status,
+                data: response.data
+            };
+        }
+    } catch (error) {
+        if (error.response) {
+            if (error.response.status === 404) {
+                console.error({
+                    message: "Error deleting expense:",
+                    statusCode: 404,
+                    errorMessage: "Expense not found in the database"
+                });
+                return { message: "Expense not found in the database", statusCode: 404 };
+            }
+            if (error.response.status === 500) {
+                console.error({
+                    message: "Error deleting expense:",
+                    statusCode: 500,
+                    errorMessage: error.response.data.error || error.message
+                });
+                return { message: "Server error while deleting expense", statusCode: 500 };
+            }
+        }
+        console.error({
+            message: "Error deleting expense:",
+            statusCode: "Unknown",
+            errorMessage: error.message
+        });
+        throw error; 
+    }
+}
+

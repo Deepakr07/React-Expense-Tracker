@@ -3,9 +3,9 @@ import IncomeExpenses from "./Components/IncomeExpenses";
 import TransactionList from "../../Components/TransactionList";
 import Balance from "./Components/Balance"
 import { ArrowCircleUp, ArrowCircleDown } from "../../Core/Icons/icons";
-import { getAllExpenses } from "@/Actions/expenseActions";
+import { getExpenses } from "@/Actions/expenseActions";
 export default function IncomeExpensePage(){
-    getAllExpenses()
+    const id = 1;
     return(
         <div className="container">
             <Balance />
