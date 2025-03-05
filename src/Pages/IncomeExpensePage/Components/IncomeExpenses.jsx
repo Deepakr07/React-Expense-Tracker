@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import Tooltip from "../../../Components/Tooltip"; 
 import "./Balance.css"
 import { truncateAmount } from "@/Core/Helpers/amountUtils";
-export default function IncomeExpenses({category,categoryClass, InsideIcon,amount = "0.00"}) {
+export default function IncomeExpenses({category,categoryClass, InsideIcon,amount }) {
 
   return (
     <div className="card">

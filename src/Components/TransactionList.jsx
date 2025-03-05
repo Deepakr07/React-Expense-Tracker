@@ -5,7 +5,8 @@ import "./Transaction/Transaction.css"
 import EmptyListMessage from "./EmptyListMessage"
 import Header from "./Header"
 
-export default function TransactionList({incomeExpenseTransaction, title,buttonOnClick}){
+export default function TransactionList({incomeExpenseTransaction, title,buttonOnClick,transactions}){
+    console.log("From transactions ",transactions)
     // const { transactions} = useContext(GlobalContext)
     
     // let sortedTransactions = [...transactions]    
@@ -32,9 +33,8 @@ export default function TransactionList({incomeExpenseTransaction, title,buttonO
             <List className="list">
                 {
                     //check whether any transactions exist in the db. if yes map it and display else just display the empty list message
-                 1 ?<EmptyListMessage />: 
-                "Display transactions from the backend here"
-                // .map(transaction =>(<Transaction transaction = "" key="" incomeExpenseTransaction = {incomeExpenseTransaction} buttonOnClick = {buttonOnClick}/>))
+                 transactions?.length === 0 ?<EmptyListMessage />: 
+                transactions?.map(transaction =>(<Transaction transaction = {transaction} key = {transaction.id} incomeExpenseTransaction = {incomeExpenseTransaction} buttonOnClick = {buttonOnClick}/>))
                 }
             </List>
         </div>

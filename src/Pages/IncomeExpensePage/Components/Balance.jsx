@@ -2,7 +2,7 @@ import Tooltip from "../../../Components/Tooltip";
 import { Typography } from "@mui/material";
 import { truncateAmount } from "../../../Core/Helpers/amountUtils";
 import "./Balance.css"
-export default function Balance({ amount = "0.00" }) {
+export default function Balance({ amount }) {
 
   return (
     <div className="balance-container">

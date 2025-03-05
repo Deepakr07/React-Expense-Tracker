@@ -11,24 +11,26 @@
     justify-content: space-between;
 
 }
-.red-background{
-    background-color:#FEE2E2;
+.red-background,.green-background{
+   
     border-radius: 20px;
     display: flex;
     padding: 7px;
+    
+}
+
+.red-background{
+    background-color:#FEE2E2;
     color: var(--expense-color);
 }
 .green-background{
     background-color:#DCFCE7;
-    border-radius: 20px;
-    display: flex;
-    padding: 7px;
     color: var(--income-color);
 }
+
 .text-container{
     display: flex;
     flex-direction: column;
-    gap: 4px;
 }
 .date{
     color: #7F8B97;
@@ -85,7 +87,7 @@
     position: fixed;
   }
   .transaction-amount{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   .icons-div{
     display: flex;

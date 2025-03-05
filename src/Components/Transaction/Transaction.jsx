@@ -5,8 +5,10 @@ import { ArrowCircleDown, ArrowCircleUp, DeleteOutline, UpdateIcon } from "../..
 import TransactionForm from "../TransactionForm";
 import { useReducer } from "react";
 import { reducer } from "./transactionReducer";
+import { getCurrentDateAndTime } from "@/Core/Helpers/dateTimeUtils";
 
 export default function Transaction({ transaction, incomeExpenseTransaction,buttonOnClick }) {
+ 
   const sign = transaction.amount > 0 ? "+" : "-";
   const className = transaction.amount > 0 ? "income" : "expense";
   const circleClass = transaction.amount > 0 ? "green-background" : "red-background";
@@ -32,7 +34,7 @@ function toggleUpdateModalAction(){
   }
 
   function truncateTransactionEntity(text) {
-    return text.length > 17 ? `${text.slice(0, 17)}...` : text;
+    return text?.length > 17 ? `${text.slice(0, 17)}...` : text;
   }
 
   return (
@@ -50,11 +52,11 @@ function toggleUpdateModalAction(){
           <div className={`transaction-container`}>
             <div className="left-transaction">
               <div className={circleClass}>
-                <Icon sx={{ fontSize: "1.2em" }} />
+                <Icon size= "19" />
               </div>
               <div className="text-container">
-                <span>{truncateTransactionEntity(transaction.text)}</span>
-                <span className="date">{transaction.date}</span>
+                <span>{truncateTransactionEntity(transaction?.description)}</span>
+                <span className="date">{getCurrentDateAndTime(transaction.date)}</span>
               </div>
             </div>
             <div className={className}>

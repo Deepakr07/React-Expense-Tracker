@@ -12,7 +12,7 @@ const Tooltip = ({ amount, children, isText = false }) => {
     >
       {children}
 
-      {showTooltip && amount.toString().length > 6 && (
+      {showTooltip && amount?.toString().length > 6 && (
         <div
           style={{
             position: "absolute",
