@@ -8,6 +8,10 @@ import { useQuery } from "@tanstack/react-query";
 
 
 export default function IncomeExpensePage(){
+    const { data } = useQuery({
+        queryKey:['IncomeExpenses'],
+        queryFn:getExpenses
+    })
     console.log(data.data)
     return(
         <div className="container">
