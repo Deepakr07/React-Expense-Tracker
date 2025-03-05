@@ -3,27 +3,32 @@ import IncomeExpenses from "./Components/IncomeExpenses";
 import TransactionList from "../../Components/TransactionList";
 import Balance from "./Components/Balance"
 import { ArrowCircleUp, ArrowCircleDown } from "../../Core/Icons/icons";
-import { getExpenses } from "@/Actions/expenseActions";
+import { getIncomeExpense } from "@/Actions/expenseActions";
 import { useQuery } from "@tanstack/react-query";
 
 
 export default function IncomeExpensePage(){
      const { data } = useQuery({
         queryKey:['IncomeExpenses'],
-        queryFn:getExpenses
+        queryFn:getIncomeExpense
      })
-    console.log(data.data)
+     if (data){ 
+        console.log(data.computationResult)
+     }
+    
     return(
         <div className="container">
-            <Balance />
-            <div className="inc-exp-container">
+                <Balance amount={data?data.computationResult.balance:"0.00"}/>
+             <div className="inc-exp-container">
                 <IncomeExpenses
-                category= "Income" 
+                category= "Income"
+                 amount = {data?data.computationResult.income:"0.00"} 
                 categoryClass = "plus" 
                 InsideIcon={ArrowCircleUp}
                 symbol="+"/>
                 <IncomeExpenses
-                category = "Expenses" 
+                category = "Expenses"
+                 amount = {data?data.computationResult.expense:"0.00"}  
                 categoryClass = "minus"
                 InsideIcon={ArrowCircleDown}
                 symbol = "-"/>

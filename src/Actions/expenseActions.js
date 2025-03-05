@@ -24,7 +24,25 @@ export async function getExpenses(page, limit ,id) {
         throw error
     }
 }
-
+export async function getIncomeExpense(){
+    try{
+        const response = await axios.get(`${API_BASE_URL}/expenses/computation`)
+        if(response.status === 200){
+            return response.data
+        }
+        else if (response.status === 204) {
+            return { message: "No content found", data: [], statusCode: response.status };
+        }
+    }
+    catch (error){
+        console.error(
+            { message:"Error fetching expense: ",
+              statusCode:error.response ? error.response.status : "Unknown",
+              errorMessage:error.message
+            })
+        throw error
+    }
+}
 export async function addExpense(expenseData) {
     try {
         const response = await axios.post(`${API_BASE_URL}/expenses`, expenseData);

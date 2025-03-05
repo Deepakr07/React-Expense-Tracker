@@ -1,22 +1,8 @@
-import { useContext} from "react";
 import Tooltip from "../../../Components/Tooltip"; 
 import { Typography } from "@mui/material";
 import { truncateAmount } from "../../../Core/Helpers/amountUtils";
-// import "./Balance.css"
-export default function Balance() {
-  // const { transactions } = useContext(GlobalContext);
-
-  let income = 0;
-  let expense = 0;
-
-
-  // transactions.forEach((transaction) => {
-  //   if (transaction.amount > 0) income += Math.abs(transaction.amount);
-  //   else expense += Math.abs(transaction.amount);
-  // });
-
-  const calculated = parseFloat(income - expense).toFixed(2)
-
+import "./Balance.css"
+export default function Balance({ amount = "0.00" }) {
 
   return (
     <div className="balance-container">
@@ -28,14 +14,14 @@ export default function Balance() {
           marginBottom:"4px"
           }}>Current Balance
       </Typography>
-      <Tooltip amount={calculated}>
+      <Tooltip amount={parseFloat(amount).toFixed(2)}>
         <Typography variant= "h7"
         sx={{ 
           cursor: "pointer", 
           fontWeight:"600",
            fontSize:"2.95rem",
            color:"#FFFFFF"
-          }}>${(truncateAmount(calculated))}
+          }}>${truncateAmount(parseFloat(amount).toFixed(2))}
         </Typography>
   </Tooltip>
     </div>
