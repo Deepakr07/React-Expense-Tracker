@@ -1,20 +1,19 @@
 import { useContext} from "react";
-import { GlobalContext } from "../../../Context/GlobalState";
 import Tooltip from "../../../Components/Tooltip"; 
 import { Typography } from "@mui/material";
 import { truncateAmount } from "../../../Core/Helpers/amountUtils";
 // import "./Balance.css"
 export default function Balance() {
-  const { transactions } = useContext(GlobalContext);
+  // const { transactions } = useContext(GlobalContext);
 
   let income = 0;
   let expense = 0;
 
 
-  transactions.forEach((transaction) => {
-    if (transaction.amount > 0) income += Math.abs(transaction.amount);
-    else expense += Math.abs(transaction.amount);
-  });
+  // transactions.forEach((transaction) => {
+  //   if (transaction.amount > 0) income += Math.abs(transaction.amount);
+  //   else expense += Math.abs(transaction.amount);
+  // });
 
   const calculated = parseFloat(income - expense).toFixed(2)
 

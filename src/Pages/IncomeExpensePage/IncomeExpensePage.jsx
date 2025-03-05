@@ -4,10 +4,11 @@ import TransactionList from "../../Components/TransactionList";
 import Balance from "./Components/Balance"
 import { ArrowCircleUp, ArrowCircleDown } from "../../Core/Icons/icons";
 import { getExpenses } from "@/Actions/expenseActions";
+import { useQuery } from "@tanstack/react-query";
 
 
 export default function IncomeExpensePage(){
-
+    console.log(data.data)
     return(
         <div className="container">
             <Balance />

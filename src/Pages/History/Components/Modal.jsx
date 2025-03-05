@@ -2,8 +2,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { useContext } from "react";
-import { GlobalContext } from "../../../Context/GlobalState";
+
 // Modal style
 const style = {
   position: "absolute",
@@ -19,7 +18,8 @@ width:".332"
 };
 
 export default function BasicModal({ open, handleClose, transaction }) {
-    const { deleteTransaction } = useContext(GlobalContext);
+
+    //call the deleteTransaction endpoint function when the delete button is clicked
   return (
     <Modal
       open={open} 
@@ -43,7 +43,7 @@ export default function BasicModal({ open, handleClose, transaction }) {
             Cancel
         </Button>
 
-        <Button sx = {{backgroundColor:"#EF4848",borderRadius:"5px",color:"white", fontWeight:"bold",textTransform:"none"}}onClick={() => {deleteTransaction(transaction.id) }}>
+        <Button sx = {{backgroundColor:"#EF4848",borderRadius:"5px",color:"white", fontWeight:"bold",textTransform:"none"}}onClick={() => "{deleteTransaction(transaction.id) }"}>
           Delete
         </Button>
 

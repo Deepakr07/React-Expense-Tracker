@@ -1,19 +1,17 @@
-import { GlobalContext } from "../../../Context/GlobalState";
-import { useContext } from "react";
 import { Typography } from "@mui/material";
 import Tooltip from "../../../Components/Tooltip"; 
 import "./Balance.css"
 import { truncateAmount } from "@/Core/Helpers/amountUtils";
 export default function IncomeExpenses({category,categoryClass, InsideIcon}) {
   
-  const { transactions } = useContext(GlobalContext);
+  // const { transactions } = useContext(GlobalContext);
   let income = 0;
   let expense = 0;
 
-  transactions.forEach((transaction) => {
-    if (transaction.amount > 0) income += Math.abs(transaction.amount);
-    else expense += Math.abs(transaction.amount);
-  });
+  // transactions.forEach((transaction) => {
+  //   if (transaction.amount > 0) income += Math.abs(transaction.amount);
+  //   else expense += Math.abs(transaction.amount);
+  // });
 
 
 
