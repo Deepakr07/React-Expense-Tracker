@@ -136,4 +136,3 @@ export async function deleteExpense(id) {
         throw error; 
     }
 }
-

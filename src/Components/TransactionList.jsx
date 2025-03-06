@@ -6,7 +6,7 @@ import EmptyListMessage from "./EmptyListMessage"
 import Header from "./Header"
 
 export default function TransactionList({incomeExpenseTransaction, title,buttonOnClick,transactions}){
-    console.log("From transactions ",transactions)
+
     return(
         <div className="transaction-list-container">
         <Typography variant="h7"
