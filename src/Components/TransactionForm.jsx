@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {handleAmountBeforeInput,handleAmountInputChange,handleTextInputChange} from "../Core/Helpers/validations";
 import { Typography } from "@mui/material";
@@ -30,13 +30,6 @@ export default function TransactionForm({
   const amountValue = watch("amount");
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-
-  useEffect(() => {
-    if (transaction) {
-      setValue("text", transaction.text);
-      setValue("amount", transaction.amount);
-    }
-  }, [transaction, setValue]);
 
   const onSubmit = async ({ description, amount }) => {
     const updatedTransaction = {
