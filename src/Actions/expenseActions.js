@@ -43,6 +43,7 @@ export async function getIncomeExpense(){
         throw error
     }
 }
+
 export async function addExpense(expenseData) {
     try {
         const response = await axios.post(`${API_BASE_URL}/expenses`, expenseData);

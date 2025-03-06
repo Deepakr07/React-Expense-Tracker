@@ -36,10 +36,10 @@ export default function TransactionForm({
       description,
       amount,
     };
-    
+
     try {
-      const result =  await buttonOnClick(updatedTransaction);
-      if (result.statusCode === 201 ){
+      const operation = transaction !== null? await buttonOnClick(transaction.id):await buttonOnClick(updatedTransaction)
+      if (operation.statusCode === 201 ){
         setSnackbarOpen(true);
       }
     } catch (error) {

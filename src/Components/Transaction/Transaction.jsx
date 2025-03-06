@@ -75,7 +75,7 @@ function toggleUpdateModalAction(){
         </ListItem>
       </Tooltip>
 
-      <BasicModal open={state.openDelete} handleClose={toggleDeleteModalAction} transaction={transaction}/>
+      <BasicModal open={state.openDelete} handleClose={toggleDeleteModalAction} transaction={transaction} />
       {state.openUpdate && <TransactionForm open={state.openUpdate} handleClose={toggleUpdateModalAction} transaction={transaction} title = "Edit Transaction" buttonText = "Update Transaction" buttonOnClick ={buttonOnClick}/>}
     </div>
   );

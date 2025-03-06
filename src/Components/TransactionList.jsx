@@ -21,7 +21,7 @@ export default function TransactionList({incomeExpenseTransaction, title,buttonO
             <List className="list">
                 {
                 transactions?.length === 0 ?<EmptyListMessage />: 
-                transactions?.map(transaction =>(<Transaction transaction = {transaction} key = {transaction.id} incomeExpenseTransaction = {incomeExpenseTransaction} buttonOnClick = {buttonOnClick}/>))
+                transactions?.map(transaction =>(<Transaction transaction = {transaction} key = {transaction.id} incomeExpenseTransaction = {incomeExpenseTransaction} buttonOnClick = {buttonOnClick} />))
                 }
             </List>
         </div>
