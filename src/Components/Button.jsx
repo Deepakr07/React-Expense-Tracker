@@ -32,8 +32,6 @@ const Button = React.forwardRef(({ className = "", variant, size, asChild = fals
   const Comp = asChild ? Slot : "button";
   const appliedClass = buttonVariants({ variant, size });
 
-  console.log(`Button Variant: ${variant}, Size: ${size}, Applied Classes: ${appliedClass}`);
-
   return <Comp className={`${appliedClass} ${className}`} ref={ref} {...props} />;
 });
 

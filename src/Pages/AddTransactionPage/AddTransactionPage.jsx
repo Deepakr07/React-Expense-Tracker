@@ -1,9 +1,17 @@
-import TransactionForm from "../../Components/TransactionForm"
+import TransactionForm from "../../Components/TransactionForm";
 
-export default function AddTransactionPage(){
-    return(
-        <div className="container">
-            <TransactionForm title = "Add Transaction" buttonText = "Add Transaction" buttonOnClick=""/>
-        </div>
-    )
+import { addExpense } from "@/Actions/expenseActions";
+export default function AddTransactionPage() {
+  return (
+    <div className="container">
+      <TransactionForm
+        title="Add Transaction"
+        buttonText="Add Transaction"
+        buttonOnClick={addExpense}
+        snackBarContent="Transaction Added Successfully ✓"
+        snackBarColor="#9333EA"
+      />
+
+    </div>
+  );
 }

@@ -16,9 +16,6 @@ export default function IncomeExpensePage(){
         queryKey:['IncomeExpenses'],
         queryFn:fetchData
      })
-//   console.log(data?data.transactions:"Data not retrieved")
-console.log(data)
-    
     return(
         <div className="container">
                 <Balance amount={data?data.incomeExpense.computationResult.balance:"0.00"}/>
