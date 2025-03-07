@@ -1,13 +1,17 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { handleAmountBeforeInput, handleAmountInputChange, handleTextInputChange } from "../Core/Helpers/validations";
-import { Typography } from "@mui/material";
-import "./AddTransaction.css";
-import Header from "./Header";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
-import { Button } from "@/Components/Button";
-import SnackBar from "@/Pages/IncomeExpensePage/Components/SnackBar";
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import {
+  handleAmountBeforeInput,
+  handleAmountInputChange,
+  handleTextInputChange,
+} from "../Core/Helpers/validations"
+import { Typography } from "@mui/material"
+import "./AddTransaction.css"
+import Header from "./Header"
+import Modal from "@mui/material/Modal"
+import Box from "@mui/material/Box"
+import { Button } from "@/Components/Button"
+import SnackBar from "@/Components/SnackBar"
 
 export default function TransactionForm({
   open = false,
@@ -17,42 +21,44 @@ export default function TransactionForm({
   buttonText,
   buttonOnClick,
   snackBarContent,
-  SnackBarColor,
+  snackBarColor,
 }) {
   const { register, handleSubmit, reset, watch, setValue } = useForm({
     defaultValues: {
       description: transaction?.text || "",
       amount: transaction?.amount || "",
     },
-  });
+  })
 
-  const textValue = watch("description");
-  const amountValue = watch("amount");
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-
+  const textValue = watch("description")
+  const amountValue = watch("amount")
+  const [snackbarOpen, setSnackbarOpen] = useState(false)
 
   const onSubmit = async ({ description, amount }) => {
     const updatedTransaction = {
       description,
       amount,
-    };
-    
-    try {
-      const result =  await buttonOnClick(updatedTransaction);
-      if (result.statusCode === 201 ){
-        setSnackbarOpen(true);
-      }
-    } catch (error) {
-      console.error("Error while updating transaction:", error);
     }
 
-    reset();
-    if (handleClose) handleClose();
-  };
+    try {
+      const operation =
+        transaction !== null
+          ? await buttonOnClick(transaction.id)
+          : await buttonOnClick(updatedTransaction)
+      if (operation.statusCode === 201) {
+        setSnackbarOpen(true)
+      }
+    } catch (error) {
+      console.error("Error while updating transaction:", error)
+    }
+
+    reset()
+    if (handleClose) handleClose()
+  }
 
   const handleCloseSnackbar = () => {
-    setSnackbarOpen(false);
-  };
+    setSnackbarOpen(false)
+  }
 
   const formContent = (
     <div className="add-transaction-container">
@@ -60,7 +66,10 @@ export default function TransactionForm({
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control">
           <label htmlFor="description">
-            <Typography variant="h7" sx={{ fontSize: ".83rem", fontWeight: "500" }}>
+            <Typography
+              variant="h7"
+              sx={{ fontSize: ".83rem", fontWeight: "500" }}
+            >
               Description
             </Typography>
           </label>
@@ -74,11 +83,17 @@ export default function TransactionForm({
         </div>
         <div className="form-control">
           <label htmlFor="amount">
-            <Typography variant="h7" sx={{ fontSize: ".83rem", fontWeight: "500" }}>
+            <Typography
+              variant="h7"
+              sx={{ fontSize: ".83rem", fontWeight: "500" }}
+            >
               Amount
             </Typography>
           </label>
-          <span className="amount-span"> (negative for expense, positive for income)</span>
+          <span className="amount-span">
+            {" "}
+            (negative for expense, positive for income)
+          </span>
           <input
             type="text"
             name="amount"
@@ -89,7 +104,10 @@ export default function TransactionForm({
           />
         </div>
         <div className="button-container">
-          <Button className={!textValue || !amountValue ? "btn-disabled" : "btn"} disabled={!textValue || !amountValue}>
+          <Button
+            className={!textValue || !amountValue ? "btn-disabled" : "btn"}
+            disabled={!textValue || !amountValue}
+          >
             {buttonText}
           </Button>
         </div>
@@ -98,13 +116,18 @@ export default function TransactionForm({
         display={snackbarOpen}
         handleClose={handleCloseSnackbar}
         snackBarContent={snackBarContent}
-        SnackBarColor={SnackBarColor}
+        snackBarColor={snackBarColor}
       />
     </div>
   );
 
   return open ? (
-    <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
       <Box
         sx={{
           position: "absolute",

@@ -7,7 +7,7 @@ import { useReducer } from "react";
 import { reducer } from "./transactionReducer";
 import { getCurrentDateAndTime } from "@/Core/Helpers/dateTimeUtils";
 
-export default function Transaction({ transaction, incomeExpenseTransaction,buttonOnClick }) {
+export default function Transaction({ transaction, incomeExpenseTransaction,buttonOnClick,setSnackBarOpen }) {
  
   const sign = transaction.amount > 0 ? "+" : "-";
   const className = transaction.amount > 0 ? "income" : "expense";
@@ -75,7 +75,7 @@ function toggleUpdateModalAction(){
         </ListItem>
       </Tooltip>
 
-      <BasicModal open={state.openDelete} handleClose={toggleDeleteModalAction} transaction={transaction}/>
+      <BasicModal open={state.openDelete} handleClose={toggleDeleteModalAction} transaction={transaction} setSnackBarOpen = {setSnackBarOpen}/>
       {state.openUpdate && <TransactionForm open={state.openUpdate} handleClose={toggleUpdateModalAction} transaction={transaction} title = "Edit Transaction" buttonText = "Update Transaction" buttonOnClick ={buttonOnClick}/>}
     </div>
   );

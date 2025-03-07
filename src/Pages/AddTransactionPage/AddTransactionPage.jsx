@@ -9,9 +9,9 @@ export default function AddTransactionPage() {
         buttonText="Add Transaction"
         buttonOnClick={addExpense}
         snackBarContent="Transaction Added Successfully ✓"
-        snackBarColor="#9333EA"
+        snackBarColor='#9333EA'
       />
 
     </div>
-  );
+  )
 }
