@@ -101,7 +101,8 @@ export async function deleteExpense(id) {
         if (response.status === 200) {
             return {
                 message: response.data.message,
-                deletedExpense: response.data.deletedExpense 
+                deletedExpense: response.data.deletedExpense ,
+                statusCode:response.status
             };
         } else {
             return {
