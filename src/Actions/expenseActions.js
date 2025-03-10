@@ -43,6 +43,7 @@ export async function getIncomeExpense(){
         throw error
     }
 }
+
 export async function addExpense(expenseData) {
     try {
         const response = await axios.post(`${API_BASE_URL}/expenses`, expenseData);
@@ -100,7 +101,8 @@ export async function deleteExpense(id) {
         if (response.status === 200) {
             return {
                 message: response.data.message,
-                deletedExpense: response.data.deletedExpense 
+                deletedExpense: response.data.deletedExpense ,
+                statusCode:response.status
             };
         } else {
             return {
