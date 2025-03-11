@@ -5,7 +5,7 @@ import { updateExpense } from "@/Actions/expenseActions"
 import { useState } from "react"
 import SnackBar from "@/Components/SnackBar"
 export default function HistoryPage() {
-  const [snackBarOpen, setSnackBarOpen] = useState(false);
+  const [snackBarOpen, setSnackBarOpen] = useState({open:false,type:"Delete"});
   const { data } = useQuery({
     queryKey: ['Transaction History'],
     queryFn: () => getExpenses(1, 10, null),
@@ -15,20 +15,21 @@ export default function HistoryPage() {
     function handleSnackBarClose(){
         setSnackBarOpen(false)
     }
+    const snackBarContent = snackBarOpen.type === "Delete"?"Transaction Deleted Successfully ✓":"Transaction Updated Successfully ✓"
+    const snackBarColor = snackBarOpen.type === "Delete"? "#EF4848":"#9333EA"
 
   return (
     <div className="container">
       <TransactionList 
-        incomeExpenseTransaction={false} 
-        title="Transaction History" 
+        incomeExpenseTransaction={false}  
         buttonOnClick={updateExpense} 
         transactions={data?.data}
-        setSnackBarOpen = {setSnackBarOpen} 
+        setSnackBarOpen = {setSnackBarOpen}
       />
         <SnackBar 
-        display={snackBarOpen} 
-        snackBarColor='#EF4848'
-        snackBarContent="Transaction Deleted Successfully ✓" 
+        display={snackBarOpen.open} 
+        snackBarColor={snackBarColor}
+        snackBarContent={snackBarContent} 
         handleClose={handleSnackBarClose}
         />
     </div>

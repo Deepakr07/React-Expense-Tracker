@@ -4,15 +4,14 @@ import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 import { deleteExpense } from "@/Actions/expenseActions"
 import { useQueryClient } from "@tanstack/react-query"
-import { useState } from "react"
-import SnackBar from "@/Components/SnackBar"
+
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 450,
   bgcolor: "background.paper",
   boxShadow: 24,
   borderRadius: 2,
@@ -33,7 +32,12 @@ export default function BasicModal({ open, handleClose, transaction,setSnackBarO
       const result = await deleteExpense(id)
       
       if (result?.statusCode === 200) {
-        setSnackBarOpen(true)
+        setSnackBarOpen(prevState => ({
+          ...prevState, 
+          type: "Delete", 
+          open: !prevState.open 
+        }));
+        
         console.log("Transaction deleted:", id)
         
         queryClient.refetchQueries(["Transaction History"],{active:true })
