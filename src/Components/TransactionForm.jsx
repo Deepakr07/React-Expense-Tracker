@@ -11,7 +11,7 @@ import Header from "./Header"
 import Modal from "@mui/material/Modal"
 import Box from "@mui/material/Box"
 import { Button } from "@/Components/Button"
-import SnackBar from "@/Components/SnackBar"
+import { useQueryClient } from "@tanstack/react-query"
 
 export default function TransactionForm({
   open = false,
@@ -20,19 +20,18 @@ export default function TransactionForm({
   title,
   buttonText,
   buttonOnClick,
-  snackBarContent,
-  snackBarColor,
+  setSnackBarOpen,
 }) {
   const { register, handleSubmit, reset, watch, setValue } = useForm({
     defaultValues: {
-      description: transaction?.text || "",
+      description: transaction?.description || "",
       amount: transaction?.amount || "",
     },
   })
-
+  const queryClient = useQueryClient()
   const textValue = watch("description")
   const amountValue = watch("amount")
-  const [snackbarOpen, setSnackbarOpen] = useState(false)
+
 
   const onSubmit = async ({ description, amount }) => {
     const updatedTransaction = {
@@ -43,10 +42,21 @@ export default function TransactionForm({
     try {
       const operation =
         transaction !== null
-          ? await buttonOnClick(transaction.id)
+          ? await buttonOnClick(transaction.id,updatedTransaction)
           : await buttonOnClick(updatedTransaction)
-      if (operation.statusCode === 201) {
-        setSnackbarOpen(true)
+          console.log("from update",operation.statusCode)
+      if (operation.statusCode === 201 || operation.statusCode === 200) {
+        setSnackBarOpen(prevState => ({
+          ...prevState, 
+          type: "Update", 
+          open: true 
+        }));
+        
+        console.log("Snackbar log from transaction form")
+  
+      }
+      if(operation.statusCode === 200){
+        queryClient.invalidateQueries(["Transaction History"])
       }
     } catch (error) {
       console.error("Error while updating transaction:", error)
@@ -54,10 +64,6 @@ export default function TransactionForm({
 
     reset()
     if (handleClose) handleClose()
-  }
-
-  const handleCloseSnackbar = () => {
-    setSnackbarOpen(false)
   }
 
   const formContent = (
@@ -112,12 +118,7 @@ export default function TransactionForm({
           </Button>
         </div>
       </form>
-      <SnackBar
-        display={snackbarOpen}
-        handleClose={handleCloseSnackbar}
-        snackBarContent={snackBarContent}
-        snackBarColor={snackBarColor}
-      />
+
     </div>
   );
 

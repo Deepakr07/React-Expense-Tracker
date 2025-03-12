@@ -39,7 +39,7 @@ function toggleUpdateModalAction(){
 
   return (
     <div className="transaction-card">
-      <Tooltip amount={transaction.text} isText = {true}>
+      <Tooltip amount={transaction.description} isText = {true}>
         <ListItem
           sx={{
             borderRadius: "10px",
@@ -76,7 +76,8 @@ function toggleUpdateModalAction(){
       </Tooltip>
 
       <BasicModal open={state.openDelete} handleClose={toggleDeleteModalAction} transaction={transaction} setSnackBarOpen = {setSnackBarOpen}/>
-      {state.openUpdate && <TransactionForm open={state.openUpdate} handleClose={toggleUpdateModalAction} transaction={transaction} title = "Edit Transaction" buttonText = "Update Transaction" buttonOnClick ={buttonOnClick}/>}
+      {state.openUpdate && <TransactionForm open={state.openUpdate} handleClose={toggleUpdateModalAction} setSnackBarOpen = {setSnackBarOpen} transaction={transaction} title = "Edit Transaction" buttonText = "Update Transaction" buttonOnClick ={buttonOnClick}/>}
+      
     </div>
   );
 }

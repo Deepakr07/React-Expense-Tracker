@@ -2,7 +2,7 @@ import axios from "axios"
 
 const API_BASE_URL = import.meta.env.VITE_BASE_URL
 
-export async function getExpenses(page, limit ,id) {
+export async function getExpenses(page=1, limit=3 ,id = null) {
     try{
         const API_URL = id? `${API_BASE_URL}/expenses/${id}`: `${API_BASE_URL}/expenses/`
         const params = id?{}:{params: {page: page,limit: limit}}
@@ -49,7 +49,10 @@ export async function addExpense(expenseData) {
         const response = await axios.post(`${API_BASE_URL}/expenses`, expenseData);
 
         if (response.status === 201) {
-            return response.data; 
+            return {
+                statusCode: response.status,
+                data: response.data
+            } 
         } else if (response.status === 400) {
             return { message: "Bad request. Please check the data sent.", statusCode: 400 };
         } else {
@@ -73,26 +76,26 @@ export async function addExpense(expenseData) {
 export async function updateExpense(id, updateData) {
     try {
         const response = await axios.put(`${API_BASE_URL}/expenses/${id}`, updateData);
-        if (response.status === 200) {
-            return response.data; 
-        } else if (response.status === 204) {
-            return { message: "No content returned after update", data: [] };
-        } else {
-            return {
-                message: "Unexpected response from the server",
-                statusCode: response.status,
-                data: response.data
-            };
-        }
+        console.log("From update action ", response.status);
+
+        return {
+            statusCode: response.status,
+            data: response.data
+        };
     } catch (error) {
         console.error({
             message: "Error updating expense:",
             statusCode: error.response ? error.response.status : "Unknown",
             errorMessage: error.message
         });
-        throw error; 
+
+        return {
+            statusCode: error.response ? error.response.status : 500,
+            errorMessage: error.message
+        };
     }
 }
+
 
 
 export async function deleteExpense(id) {
