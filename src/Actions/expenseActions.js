@@ -31,7 +31,7 @@ export async function getIncomeExpense(){
             return response.data
         }
         else if (response.status === 204) {
-            return { message: "No content found", data: [], statusCode: response.status };
+            return { message: "No content found", data: [], statusCode: response.status }
         }
     }
     catch (error){
@@ -46,7 +46,7 @@ export async function getIncomeExpense(){
 
 export async function addExpense(expenseData) {
     try {
-        const response = await axios.post(`${API_BASE_URL}/expenses`, expenseData);
+        const response = await axios.post(`${API_BASE_URL}/expenses`, expenseData)
 
         if (response.status === 201) {
             return {
@@ -54,7 +54,7 @@ export async function addExpense(expenseData) {
                 data: response.data
             } 
         } else if (response.status === 400) {
-            return { message: "Bad request. Please check the data sent.", statusCode: 400 };
+            return { message: "Bad request. Please check the data sent.", statusCode: 400 }
         } else {
             return {
                 message: "Unexpected response from the server",
@@ -69,14 +69,14 @@ export async function addExpense(expenseData) {
             statusCode: error.response ? error.response.status : "Unknown",
             errorMessage: error.message
         });
-        throw error;
+        throw error
     }
 }
 
 export async function updateExpense(id, updateData) {
     try {
-        const response = await axios.put(`${API_BASE_URL}/expenses/${id}`, updateData);
-        console.log("From update action ", response.status);
+        const response = await axios.put(`${API_BASE_URL}/expenses/${id}`, updateData)
+        console.log("From update action ", response.status)
 
         return {
             statusCode: response.status,
@@ -100,7 +100,7 @@ export async function updateExpense(id, updateData) {
 
 export async function deleteExpense(id) {
     try {
-        const response = await axios.delete(`${API_BASE_URL}/expenses/${id}`);
+        const response = await axios.delete(`${API_BASE_URL}/expenses/${id}`)
         if (response.status === 200) {
             return {
                 message: response.data.message,
